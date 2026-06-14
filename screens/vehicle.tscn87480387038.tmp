@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://bxiqylmq2yxls"]
+
+[ext_resource type="Script" uid="uid://cagbqkbnp28rb" path="res://scripts/vehicle.gd" id="1_bgm3u"]
+[ext_resource type="PackedScene" uid="uid://d41hroi53g7n" path="res://assets/free_concept_car_038_-_public_domain_cc0.glb" id="2_o0glj"]
+[ext_resource type="Script" uid="uid://d3wa652n1csbq" path="res://scripts/brakelights.gd" id="3_blnh5"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bgm3u"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bgm3u"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_srr6i"]
+size = Vector3(1.2, 0.5, 2.5)
+
+[node name="VehicleBody3D" type="VehicleBody3D" unique_id=1937499188]
+mass = 100.0
+physics_material_override = SubResource("PhysicsMaterial_bgm3u")
+script = ExtResource("1_bgm3u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=734112771]
+transparency = 0.61
+mesh = SubResource("BoxMesh_bgm3u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=316394519]
+shape = SubResource("BoxShape3D_srr6i")
+
+[node name="Wheel_FL" type="VehicleWheel3D" parent="." unique_id=1781201786]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1.5)
+brake = 25.0
+use_as_steering = true
+wheel_friction_slip = 4.0
+
+[node name="Wheel_FR" type="VehicleWheel3D" parent="." unique_id=962448847]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1.5)
+brake = 25.0
+use_as_steering = true
+wheel_friction_slip = 4.0
+
+[node name="Wheel_RL" type="VehicleWheel3D" parent="." unique_id=451597222]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1.5)
+brake = 25.0
+use_as_traction = true
+wheel_friction_slip = 7.0
+
+[node name="Wheel_RR" type="VehicleWheel3D" parent="." unique_id=359770335]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1.5)
+brake = 25.0
+use_as_traction = true
+wheel_friction_slip = 7.0
+
+[node name="CarModel" parent="." unique_id=1975083097 instance=ExtResource("2_o0glj")]
+transform = Transform3D(0.018, 0, 0, 0, 0.013, 0, 0, 0, 0.012, -0.017129898, -0.38844383, 2.581945)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=156113864]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.77886367, 0.8385265, -1.4956336)
+light_color = Color(1, 0, 0, 1)
+light_energy = 3.0
+script = ExtResource("3_blnh5")
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=1188616291]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.87130356, 0.8385265, -1.4956336)
+light_color = Color(1, 0, 0, 1)
+script = ExtResource("3_blnh5")
