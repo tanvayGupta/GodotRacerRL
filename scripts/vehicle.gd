@@ -1,21 +1,33 @@
 extends VehicleBody3D
 
 # --- Tunable parameters ---
-var max_engine_force = 3500.0
-var max_steering_angle = 0.7
-var steering_per_unit = 0.05
-var brake_force = 50.0
+var max_engine_force = 35000.0
+var max_steering_angle = 0.6
+var steering_per_unit = 0.15
+var brake_force = 500.0
 var steer = 0.0
+var leftRight = Input.get_axis("steer_left","steer_right")
+
+#Intitial position
+var spawn_position: Vector3
+var spawn_rotation: Vector3
 
 # Grip tuning
-var lateral_grip_strength = 8.0
+var lateral_grip_strength = 25.0
+
+func _ready():
+	spawn_position = global_position
+	spawn_rotation = rotation
 
 func _physics_process(delta):
 	# --- INPUT ---
 	var engine = 0.0
 	var braking = 0.0
 	#print("running car")
-
+	
+	if Input.is_action_just_pressed("reset"):
+		reset_car()
+	
 	if Input.is_action_pressed("accelerate"):
 		#print(steer)
 		engine = max_engine_force
@@ -24,14 +36,17 @@ func _physics_process(delta):
 		braking = brake_force
 
 	if Input.is_action_pressed("steer_left"):
-		if steer < max_steering_angle:
-			steer += steering_per_unit
+		steer = move_toward(steer, max_steering_angle, steering_per_unit)
 		#print(steer)
 
 	if Input.is_action_pressed("steer_right"):
-		if steer > -max_steering_angle:
-			steer -= steering_per_unit
+		steer = move_toward(steer, -max_steering_angle, steering_per_unit)
 		#print(steer)
+		
+	if leftRight == 0:
+		steer /= 1.3
+			
+			
 	
 	if Input.is_action_pressed("reverse"):
 		engine = -max_engine_force
@@ -60,3 +75,10 @@ func apply_lateral_grip(delta):
 	var corrected_velocity = velocity - lateral_velocity * lateral_grip_strength * delta
 
 	linear_velocity = corrected_velocity
+	
+func reset_car():
+	global_position = spawn_position
+	rotation = spawn_rotation
+
+	linear_velocity = Vector3.ZERO
+	angular_velocity = Vector3.ZERO

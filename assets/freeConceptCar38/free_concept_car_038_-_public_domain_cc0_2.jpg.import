@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crq112fdbsxca"
-path.s3tc="res://.godot/imported/dodge_challenger_srt_hellcat_redeye__free_1.png-ff28963cc7e3c94aad0e89d9b172ee5f.s3tc.ctex"
+uid="uid://vleweaef47ne"
+path.s3tc="res://.godot/imported/free_concept_car_038_-_public_domain_cc0_2.jpg-7ead105de1934b9dd773d2179a54682d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "188123dd845ed7b0ab4c8e225da65c3d"
+"md5": "51af134edd917f98b495d9edebae23bb"
 }
 
 [deps]
 
-source_file="res://assets/dodge_challenger_srt_hellcat_redeye__free_1.png"
-dest_files=["res://.godot/imported/dodge_challenger_srt_hellcat_redeye__free_1.png-ff28963cc7e3c94aad0e89d9b172ee5f.s3tc.ctex"]
+source_file="res://assets/freeConceptCar38/free_concept_car_038_-_public_domain_cc0_2.jpg"
+dest_files=["res://.godot/imported/free_concept_car_038_-_public_domain_cc0_2.jpg-7ead105de1934b9dd773d2179a54682d.s3tc.ctex"]
 
 [params]
 

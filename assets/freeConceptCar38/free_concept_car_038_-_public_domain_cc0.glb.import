@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cfuixulwor5g0"
-path="res://.godot/imported/dodge_challenger_srt_hellcat_redeye__free.glb-ec47397ff4c0deb7fc6018a02377ee61.scn"
+uid="uid://d41hroi53g7n"
+path="res://.godot/imported/free_concept_car_038_-_public_domain_cc0.glb-b1c4fde9f747fe1ecb6560113ee2418f.scn"
 
 [deps]
 
-source_file="res://assets/dodge_challenger_srt_hellcat_redeye__free.glb"
-dest_files=["res://.godot/imported/dodge_challenger_srt_hellcat_redeye__free.glb-ec47397ff4c0deb7fc6018a02377ee61.scn"]
+source_file="res://assets/freeConceptCar38/free_concept_car_038_-_public_domain_cc0.glb"
+dest_files=["res://.godot/imported/free_concept_car_038_-_public_domain_cc0.glb-b1c4fde9f747fe1ecb6560113ee2418f.scn"]
 
 [params]
 

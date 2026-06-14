@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dra17gs0p00qb"
-path.s3tc="res://.godot/imported/dodge_challenger_srt_hellcat_redeye__free_15.png-e27f9b5d0888bb10db48b59119c037cf.s3tc.ctex"
+uid="uid://u65ssgw8octr"
+path.s3tc="res://.godot/imported/dodge_challenger_srt_hellcat_redeye__free_7.png-594d9c734478a631a5cf16d8124982a4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "cf610fd0a70e16cecad82d61c69c9a1e"
+"md5": "3ec9f93402cd0c108d3407d0dec1470e"
 }
 
 [deps]
 
-source_file="res://assets/dodge_challenger_srt_hellcat_redeye__free_15.png"
-dest_files=["res://.godot/imported/dodge_challenger_srt_hellcat_redeye__free_15.png-e27f9b5d0888bb10db48b59119c037cf.s3tc.ctex"]
+source_file="res://assets/dodgeSrtHellcat/dodge_challenger_srt_hellcat_redeye__free_7.png"
+dest_files=["res://.godot/imported/dodge_challenger_srt_hellcat_redeye__free_7.png-594d9c734478a631a5cf16d8124982a4.s3tc.ctex"]
 
 [params]
 

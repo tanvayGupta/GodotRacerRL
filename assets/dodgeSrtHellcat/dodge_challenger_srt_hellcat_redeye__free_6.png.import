@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vleweaef47ne"
-path.s3tc="res://.godot/imported/free_concept_car_038_-_public_domain_cc0_2.jpg-64aee94da89364af84ae4ca88d7396e6.s3tc.ctex"
+uid="uid://cdf54a6wkui2a"
+path.s3tc="res://.godot/imported/dodge_challenger_srt_hellcat_redeye__free_6.png-5a64f0aacb31f12bc2a51c7e54d639f0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "51af134edd917f98b495d9edebae23bb"
+"md5": "421fd45d5efd9b89fd75e8e9e258971f"
 }
 
 [deps]
 
-source_file="res://assets/free_concept_car_038_-_public_domain_cc0_2.jpg"
-dest_files=["res://.godot/imported/free_concept_car_038_-_public_domain_cc0_2.jpg-64aee94da89364af84ae4ca88d7396e6.s3tc.ctex"]
+source_file="res://assets/dodgeSrtHellcat/dodge_challenger_srt_hellcat_redeye__free_6.png"
+dest_files=["res://.godot/imported/dodge_challenger_srt_hellcat_redeye__free_6.png-5a64f0aacb31f12bc2a51c7e54d639f0.s3tc.ctex"]
 
 [params]
 
@@ -25,12 +25,12 @@ compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=1
+roughness/src_normal="res://assets/dodge_challenger_srt_hellcat_redeye__free_6.png"
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2

@@ -1,11 +1,9 @@
 [gd_scene format=3 uid="uid://cuxq8pu4q273h"]
 
 [ext_resource type="Texture2D" uid="uid://2yr0in5q4joi" path="res://assets/sunflowers_puresky_4k.exr" id="1_6ydpi"]
+[ext_resource type="Texture2D" uid="uid://3ah34s1l06m0" path="res://assets/tracksAndBGs/spa.png" id="2_5kag3"]
 [ext_resource type="PackedScene" uid="uid://bxiqylmq2yxls" path="res://screens/vehicle.tscn" id="2_6nlyh"]
-[ext_resource type="Texture2D" uid="uid://cf0fnv56ffnwd" path="res://assets/track0.png" id="2_rypym"]
 [ext_resource type="Script" uid="uid://cdncxbukfc3s5" path="res://scripts/label.gd" id="4_gfkhe"]
-[ext_resource type="PackedScene" uid="uid://c7m76wpbq6upd" path="res://screens/blue_cone.tscn" id="4_rypym"]
-[ext_resource type="PackedScene" uid="uid://d18axxipwjyjd" path="res://screens/yellow_cone.tscn" id="5_he66p"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3ciuf"]
 panorama = ExtResource("1_6ydpi")
@@ -19,15 +17,15 @@ sky = SubResource("Sky_6nlyh")
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6ydpi"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_he66p"]
-albedo_texture = ExtResource("2_rypym")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gfkhe"]
+albedo_texture = ExtResource("2_5kag3")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5kag3"]
-albedo_texture = ExtResource("2_rypym")
+albedo_texture = ExtResource("2_5kag3")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_gfkhe"]
 material = SubResource("StandardMaterial3D_5kag3")
-size = Vector2(400, 200)
+size = Vector2(1920, 1080)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6nlyh"]
 size = Vector3(2000, 1, 2000)
@@ -38,7 +36,7 @@ size = Vector3(2000, 1, 2000)
 environment = SubResource("Environment_3ciuf")
 
 [node name="Sun" type="DirectionalLight3D" parent="." unique_id=1695757669]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, -50, 30, 50)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1000, 100, 500)
 
 [node name="Ground" type="StaticBody3D" parent="." unique_id=1423950759]
 collision_layer = 15
@@ -47,14 +45,14 @@ physics_material_override = SubResource("PhysicsMaterial_6ydpi")
 
 [node name="PlaneMesh" type="MeshInstance3D" parent="Ground" unique_id=1482622928]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -102.85242, 0, 0)
-material_override = SubResource("StandardMaterial3D_he66p")
+material_override = SubResource("StandardMaterial3D_gfkhe")
 mesh = SubResource("PlaneMesh_gfkhe")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=251787578]
 shape = SubResource("BoxShape3D_6nlyh")
 
 [node name="VehicleBody3D" parent="." unique_id=1937499188 instance=ExtResource("2_6nlyh")]
-transform = Transform3D(0.06972167, 0, 0.99756646, 0, 1, 0, -0.99756646, 0, 0.06972167, 0, 2, -25.601448)
+transform = Transform3D(0.06972167, 0, 0.99756646, 0, 1, 0, -0.99756646, 0, 0.06972167, 32.892162, 2, 92.2609)
 
 [node name="Label3D" type="Label3D" parent="VehicleBody3D" unique_id=391855453]
 transform = Transform3D(-1, 2.262668e-08, -8.444392e-08, 0, 0.9659258, 0.25881904, 8.742278e-08, 0.25881904, -0.9659258, 20, 8, 20)
@@ -70,194 +68,4 @@ keep_aspect = 0
 v_offset = 1.5
 fov = 82.1
 
-[node name="YellowConeCollection" type="Node3D" parent="." unique_id=2104150113]
-
-[node name="Node3D" parent="YellowConeCollection" unique_id=1243341391 instance=ExtResource("5_he66p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6121454, 0, -19.709349)
-
-[node name="Node3D6" parent="YellowConeCollection" unique_id=980844507 instance=ExtResource("5_he66p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.10766, 0, -25.840061)
-
-[node name="Node3D2" parent="YellowConeCollection" unique_id=269715316 instance=ExtResource("5_he66p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.3581, -1.9073486e-06, -20.880499)
-
-[node name="Node3D3" parent="YellowConeCollection" unique_id=485801988 instance=ExtResource("5_he66p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.653503, 0, -23.347849)
-
-[node name="Node3D7" parent="YellowConeCollection" unique_id=165170523 instance=ExtResource("5_he66p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.59053, 0, -34.72037)
-
-[node name="Node3D8" parent="YellowConeCollection" unique_id=519503863 instance=ExtResource("5_he66p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.964897, -1.9073486e-06, -42.18134)
-
-[node name="Node3D9" parent="YellowConeCollection" unique_id=95949523 instance=ExtResource("5_he66p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.753923, -3.8146973e-06, -46.46478)
-
-[node name="Node3D10" parent="YellowConeCollection" unique_id=732939942 instance=ExtResource("5_he66p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.148909, -3.8146973e-06, -58.30659)
-
-[node name="Node3D11" parent="YellowConeCollection" unique_id=2121055934 instance=ExtResource("5_he66p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.737503, -3.8146973e-06, -66.078766)
-
-[node name="Node3D12" parent="YellowConeCollection" unique_id=447913938 instance=ExtResource("5_he66p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.608784, -3.8146973e-06, -65.27834)
-
-[node name="Node3D13" parent="YellowConeCollection" unique_id=1013363146 instance=ExtResource("5_he66p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.12904, -3.8146973e-06, -60.521847)
-
-[node name="Node3D14" parent="YellowConeCollection" unique_id=1511079255 instance=ExtResource("5_he66p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.02203, -5.722046e-06, -70.78608)
-
-[node name="Node3D15" parent="YellowConeCollection" unique_id=848203912 instance=ExtResource("5_he66p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.040085, -5.722046e-06, -85.33003)
-
-[node name="Node3D16" parent="YellowConeCollection" unique_id=945710651 instance=ExtResource("5_he66p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.226555, -5.722046e-06, -88.21188)
-
-[node name="Node3D17" parent="YellowConeCollection" unique_id=1166098734 instance=ExtResource("5_he66p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.947136, -5.722046e-06, -89.01477)
-
-[node name="Node3D18" parent="YellowConeCollection" unique_id=1891507502 instance=ExtResource("5_he66p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.459545, -5.722046e-06, -91.52249)
-
-[node name="Node3D19" parent="YellowConeCollection" unique_id=857675794 instance=ExtResource("5_he66p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.853504, -5.722046e-06, -92.519775)
-
-[node name="Node3D20" parent="YellowConeCollection" unique_id=699781340 instance=ExtResource("5_he66p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.7094, -5.722046e-06, -92.8023)
-
-[node name="Node3D22" parent="YellowConeCollection" unique_id=147822119 instance=ExtResource("5_he66p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.777567, -5.722046e-06, -93.75008)
-
-[node name="Node3D23" parent="YellowConeCollection" unique_id=1835403137 instance=ExtResource("5_he66p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.501581, -5.722046e-06, -93.38234)
-
-[node name="Node3D24" parent="YellowConeCollection" unique_id=47441200 instance=ExtResource("5_he66p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.844002, -5.722046e-06, -93.93788)
-
-[node name="Node3D25" parent="YellowConeCollection" unique_id=1899393652 instance=ExtResource("5_he66p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.023136, -7.6293945e-06, -91.841805)
-
-[node name="Node3D26" parent="YellowConeCollection" unique_id=658001197 instance=ExtResource("5_he66p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.950886, -7.6293945e-06, -90.29506)
-
-[node name="Node3D27" parent="YellowConeCollection" unique_id=1843950014 instance=ExtResource("5_he66p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.754692, -7.6293945e-06, -89.87958)
-
-[node name="Node3D28" parent="YellowConeCollection" unique_id=207116785 instance=ExtResource("5_he66p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.104256, -7.6293945e-06, -90.382835)
-
-[node name="Node3D29" parent="YellowConeCollection" unique_id=1478514551 instance=ExtResource("5_he66p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -83.02633, -9.536743e-06, -87.71511)
-
-[node name="Node3D30" parent="YellowConeCollection" unique_id=1283893915 instance=ExtResource("5_he66p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -94.40735, -9.536743e-06, -77.032776)
-
-[node name="Node3D31" parent="YellowConeCollection" unique_id=355761708 instance=ExtResource("5_he66p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -97.87874, -9.536743e-06, -56.438145)
-
-[node name="Node3D32" parent="YellowConeCollection" unique_id=2045876111 instance=ExtResource("5_he66p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.39371, -9.536743e-06, -52.96845)
-
-[node name="Node3D33" parent="YellowConeCollection" unique_id=1527502688 instance=ExtResource("5_he66p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.22107, -9.536743e-06, -41.218723)
-
-[node name="Node3D34" parent="YellowConeCollection" unique_id=279903794 instance=ExtResource("5_he66p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70.95436, -7.6293945e-06, -26.289627)
-
-[node name="Node3D36" parent="YellowConeCollection" unique_id=1106519706 instance=ExtResource("5_he66p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.0891, -7.6293945e-06, -32.063118)
-
-[node name="Node3D37" parent="YellowConeCollection" unique_id=371304235 instance=ExtResource("5_he66p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.499386, -7.6293945e-06, -31.440002)
-
-[node name="Node3D38" parent="YellowConeCollection" unique_id=440248849 instance=ExtResource("5_he66p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.542252, -3.8146973e-06, -29.43434)
-
-[node name="Node3D35" parent="YellowConeCollection" unique_id=640224761 instance=ExtResource("5_he66p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.118202, 1.9073486e-06, 13.747219)
-
-[node name="Node3D21" parent="YellowConeCollection" unique_id=418362788 instance=ExtResource("5_he66p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.795383, -5.722046e-06, -93.092995)
-
-[node name="Node3D4" parent="YellowConeCollection" unique_id=737583269 instance=ExtResource("5_he66p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.44187, 0, -61.268433)
-
-[node name="Node3D5" parent="YellowConeCollection" unique_id=1961935439 instance=ExtResource("5_he66p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.561779, 0, -65.87741)
-
 [node name="ScoreSystem" type="Node3D" parent="." unique_id=1791733500]
-
-[node name="Node3D" type="Node3D" parent="." unique_id=1225340475]
-
-[node name="Node3D" parent="Node3D" unique_id=219357987 instance=ExtResource("4_rypym")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -31.851198)
-
-[node name="Node3D2" parent="Node3D" unique_id=95634131 instance=ExtResource("4_rypym")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.1454735, -1.9073486e-06, -32.533573)
-
-[node name="Node3D4" parent="Node3D" unique_id=733331706 instance=ExtResource("4_rypym")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.35492, 0, -39.75599)
-
-[node name="Node3D5" parent="Node3D" unique_id=68452792 instance=ExtResource("4_rypym")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.529293, -1.9073486e-06, -40.667248)
-
-[node name="Node3D6" parent="Node3D" unique_id=626987144 instance=ExtResource("4_rypym")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.90642, -1.9073486e-06, -44.15163)
-
-[node name="Node3D7" parent="Node3D" unique_id=2091765086 instance=ExtResource("4_rypym")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.03818, -1.9073486e-06, -56.14228)
-
-[node name="Node3D8" parent="Node3D" unique_id=2086569447 instance=ExtResource("4_rypym")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.42062, -1.9073486e-06, -69.58488)
-
-[node name="Node3D9" parent="Node3D" unique_id=794943916 instance=ExtResource("4_rypym")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.65407, -1.9073486e-06, -79.927765)
-
-[node name="Node3D10" parent="Node3D" unique_id=1667796991 instance=ExtResource("4_rypym")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.739475, -1.9073486e-06, -81.1691)
-
-[node name="Node3D11" parent="Node3D" unique_id=870187255 instance=ExtResource("4_rypym")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.12303, -1.9073486e-06, -81.61304)
-
-[node name="Node3D12" parent="Node3D" unique_id=1806855991 instance=ExtResource("4_rypym")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.625298, -1.9073486e-06, -81.54074)
-
-[node name="Node3D13" parent="Node3D" unique_id=1800201151 instance=ExtResource("4_rypym")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.816902, -1.9073486e-06, -82.47675)
-
-[node name="Node3D14" parent="Node3D" unique_id=1226782093 instance=ExtResource("4_rypym")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.200747, -1.9073486e-06, -82.72178)
-
-[node name="Node3D15" parent="Node3D" unique_id=900865265 instance=ExtResource("4_rypym")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.004948, -1.9073486e-06, -83.66796)
-
-[node name="Node3D16" parent="Node3D" unique_id=1069885907 instance=ExtResource("4_rypym")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.79061, -1.9073486e-06, -84.14866)
-
-[node name="Node3D17" parent="Node3D" unique_id=2042448265 instance=ExtResource("4_rypym")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.139927, -1.9073486e-06, -81.00907)
-
-[node name="Node3D18" parent="Node3D" unique_id=1198859324 instance=ExtResource("4_rypym")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.622265, -1.9073486e-06, -76.83225)
-
-[node name="Node3D19" parent="Node3D" unique_id=1401186778 instance=ExtResource("4_rypym")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.622265, -1.9073486e-06, -75.83225)
-
-[node name="Node3D20" parent="Node3D" unique_id=361248962 instance=ExtResource("4_rypym")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.02743, -1.9073486e-06, -73.73311)
-
-[node name="Node3D21" parent="Node3D" unique_id=599582802 instance=ExtResource("4_rypym")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7439995, -1.9073486e-06, -67.866104)
-
-[node name="Node3D22" parent="Node3D" unique_id=1707053631 instance=ExtResource("4_rypym")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8874245, -1.9073486e-06, -54.69527)
-
-[node name="Node3D23" parent="Node3D" unique_id=1526338305 instance=ExtResource("4_rypym")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.124909, -1.9073486e-06, -40.619583)
-
-[node name="Node3D24" parent="Node3D" unique_id=1764170271 instance=ExtResource("4_rypym")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.458054, -1.9073486e-06, -33.144844)
-
-[node name="Node3D3" parent="Node3D" unique_id=1638493813 instance=ExtResource("4_rypym")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.574986, -3.8146973e-06, -36.242508)
