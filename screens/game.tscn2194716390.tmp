@@ -32,20 +32,13 @@ size = Vector2(1920, 1080)
 [sub_resource type="BoxShape3D" id="BoxShape3D_6nlyh"]
 size = Vector3(2000, 1, 2000)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5kag3"]
-bg_color = Color(0.26, 0.26, 0.26, 0.6745098)
-expand_margin_left = 10.0
-expand_margin_top = 10.0
-expand_margin_right = 10.0
-expand_margin_bottom = 10.0
+[sub_resource type="SystemFont" id="SystemFont_5kag3"]
+font_weight = 600
 
 [sub_resource type="LabelSettings" id="LabelSettings_gfkhe"]
-font_size = 18
-font_color = Color(6.160736e-06, 0.9676643, 0.5363413, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_5kag3"]
-font_size = 18
-font_color = Color(0, 0.93025094, 0.917203, 1)
+font = SubResource("SystemFont_5kag3")
+font_size = 24
+font_color = Color(0.6, 0.72156864, 0, 1)
 
 [node name="Game" type="Node3D" unique_id=1433884793]
 
@@ -69,7 +62,7 @@ mesh = SubResource("PlaneMesh_gfkhe")
 shape = SubResource("BoxShape3D_6nlyh")
 
 [node name="VehicleBody3D" parent="." unique_id=1937499188 instance=ExtResource("2_6nlyh")]
-transform = Transform3D(0.62409776, 0, -0.7813462, 0, 1, 0, 0.7813462, 0, 0.62409776, -700.03564, 1.9999924, 289.20297)
+transform = Transform3D(0.06972167, 0, 0.99756646, 0, 1, 0, -0.99756646, 0, 0.06972167, 32.892162, 2, 92.2609)
 
 [node name="Label3D" type="Label3D" parent="VehicleBody3D" unique_id=391855453]
 transform = Transform3D(-1, 2.262668e-08, -8.444392e-08, 0, 0.9659258, 0.25881904, 8.742278e-08, 0.25881904, -0.9659258, 20, 8, 20)
@@ -91,39 +84,24 @@ visible = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=450948378]
 
-[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=300918855]
-offset_left = 40.000004
-offset_top = 45.000004
-offset_right = 190.0
-offset_bottom = 195.0
-scale = Vector2(2.5747821, 3.4406679)
-theme_override_styles/panel = SubResource("StyleBoxFlat_5kag3")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel" unique_id=1117146689]
-show_behind_parent = true
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1117146689]
 z_index = 1
-custom_minimum_size = Vector2(100, 150)
-layout_mode = 0
-offset_right = 150.0
-offset_bottom = 150.0
+offset_left = 18.0
+offset_top = 20.0
+offset_right = 58.0
+offset_bottom = 97.0
+scale = Vector2(2.6799996, 2.6799998)
 
-[node name="TimeLabel" type="Label" parent="CanvasLayer/Panel/VBoxContainer" unique_id=1469559453]
-custom_minimum_size = Vector2(50, 20)
-layout_mode = 2
-size_flags_vertical = 2
-label_settings = SubResource("LabelSettings_gfkhe")
-vertical_alignment = 1
-script = ExtResource("6_5kag3")
-
-[node name="SpeedLabel" type="Label" parent="CanvasLayer/Panel/VBoxContainer" unique_id=2006510528]
-custom_minimum_size = Vector2(50, 20)
-layout_mode = 2
-label_settings = SubResource("LabelSettings_5kag3")
-vertical_alignment = 1
-script = ExtResource("5_he66p")
-
-[node name="TimeLabel3" type="Label" parent="CanvasLayer/Panel/VBoxContainer" unique_id=481933333]
+[node name="TimeLabel" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=1469559453]
 layout_mode = 2
 label_settings = SubResource("LabelSettings_gfkhe")
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("6_5kag3")
+
+[node name="SpeedLabel" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=774848493]
+layout_mode = 2
+script = ExtResource("5_he66p")
+
+[node name="LapLabel" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=1444946635]
+layout_mode = 2
