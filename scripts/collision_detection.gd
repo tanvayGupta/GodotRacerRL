@@ -10,7 +10,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _body_process(delta: float) -> void:
 	pass
 	
 func _on_body_entered(body):
@@ -21,3 +21,7 @@ func _on_body_entered(body):
 		triggered = true
 		print("emitted")
 		cone_hit.emit(10)
+	elif body.is_in_group("cones"):
+		triggered = true
+		print("Emitted by cone")
+		cone_hit.emit(5)

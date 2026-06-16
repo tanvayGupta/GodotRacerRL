@@ -35,6 +35,8 @@ height = 1.0
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=124400760]
 collision_layer = 2
 collision_mask = 3
+mass = 0.3
+gravity_scale = 0.8
 script = ExtResource("1_wfsx1")
 
 [node name="MainCone" type="MeshInstance3D" parent="RigidBody3D" unique_id=936094387]
@@ -59,7 +61,7 @@ collision_layer = 2
 script = ExtResource("2_556g5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/Area3D" unique_id=2035271692]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -1.6357658, 0.53, 0)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -1.6357658, 0.7014184, 0)
 shape = SubResource("CylinderShape3D_1xamk")
 
 [connection signal="body_entered" from="RigidBody3D/Area3D" to="RigidBody3D" method="_on_area_3d_body_entered"]

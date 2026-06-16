@@ -7,7 +7,7 @@ extends VehicleBody3D
 var max_engine_force = 25000.0
 var max_steering_angle := 0.6
 var steering_per_unit := 0.15
-var brake_force := 500.0
+var brake_force := 300.0
 var steer := 0.0
 var leftRight = Input.get_axis("steer_left","steer_right")
 var secondCounter := 0.0
@@ -51,8 +51,8 @@ func _physics_process(delta):
 	if leftRight == 0:
 		steer /= 1.3
 	
-	#if Input.is_action_pressed("reverse"):
-		#engine = -max_engine_force
+	if Input.is_action_pressed("reverse"):
+		engine = -max_engine_force
 		
 	secondCounter += delta
 	#Counts half a second

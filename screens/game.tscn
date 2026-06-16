@@ -1,36 +1,28 @@
 [gd_scene format=3 uid="uid://cuxq8pu4q273h"]
 
-[ext_resource type="Texture2D" uid="uid://2yr0in5q4joi" path="res://assets/sunflowers_puresky_4k.exr" id="1_6ydpi"]
-[ext_resource type="Texture2D" uid="uid://3ah34s1l06m0" path="res://assets/tracksAndBGs/spa.png" id="2_5kag3"]
+[ext_resource type="Texture2D" uid="uid://dq80lua41y4qd" path="res://assets/skies/the_sky_is_on_fire_4k.exr" id="1_g7iek"]
 [ext_resource type="PackedScene" uid="uid://bxiqylmq2yxls" path="res://screens/vehicle.tscn" id="2_6nlyh"]
+[ext_resource type="PackedScene" uid="uid://dx3nm4384n4n8" path="res://spa_path.tscn" id="2_gfkhe"]
 [ext_resource type="Script" uid="uid://cdncxbukfc3s5" path="res://scripts/label.gd" id="4_gfkhe"]
 [ext_resource type="Script" uid="uid://c7h8kdid14uy8" path="res://scripts/HUDlabels/speed_label.gd" id="5_he66p"]
 [ext_resource type="Script" uid="uid://b3j2d2mth84ab" path="res://scripts/HUDlabels/time_label.gd" id="6_5kag3"]
+[ext_resource type="Script" uid="uid://1jb4fejsrdev" path="res://scripts/HUDlabels/penalty_label.gd" id="7_g7iek"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3ciuf"]
-panorama = ExtResource("1_6ydpi")
+panorama = ExtResource("1_g7iek")
 
 [sub_resource type="Sky" id="Sky_6nlyh"]
 sky_material = SubResource("PanoramaSkyMaterial_3ciuf")
+radiance_size = 2
 
 [sub_resource type="Environment" id="Environment_3ciuf"]
 background_mode = 2
 sky = SubResource("Sky_6nlyh")
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6ydpi"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gfkhe"]
-albedo_texture = ExtResource("2_5kag3")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5kag3"]
-albedo_texture = ExtResource("2_5kag3")
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_gfkhe"]
-material = SubResource("StandardMaterial3D_5kag3")
-size = Vector2(1920, 1080)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_6nlyh"]
-size = Vector3(2000, 1, 2000)
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_sky_contribution = 0.05
+ambient_light_energy = 0.0
+tonemap_exposure = 0.6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5kag3"]
 bg_color = Color(0.26, 0.26, 0.26, 0.6745098)
@@ -47,29 +39,33 @@ font_color = Color(6.160736e-06, 0.9676643, 0.5363413, 1)
 font_size = 18
 font_color = Color(0, 0.93025094, 0.917203, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_g7iek"]
+font_size = 18
+font_color = Color(0.79622394, 0.3876549, 0.90225875, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gfkhe"]
+
 [node name="Game" type="Node3D" unique_id=1433884793]
 
 [node name="Sky" type="WorldEnvironment" parent="." unique_id=1932838987]
 environment = SubResource("Environment_3ciuf")
 
 [node name="Sun" type="DirectionalLight3D" parent="." unique_id=1695757669]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1000, 100, 500)
+transform = Transform3D(0.6908824, 0.511215, -0.511215, 0, 0.70710677, 0.70710677, 0.72296715, -0.48852763, 0.48852763, 0, 100, 0)
+layers = 15
+light_color = Color(0.9135031, 0.7004087, 0.3751921, 1)
+light_energy = 3.0
+light_indirect_energy = 0.0
+light_angular_distance = 0.5
+light_bake_mode = 0
+shadow_enabled = true
+directional_shadow_mode = 1
+directional_shadow_max_distance = 3000.0
 
-[node name="Ground" type="StaticBody3D" parent="." unique_id=1423950759]
-collision_layer = 15
-collision_mask = 15
-physics_material_override = SubResource("PhysicsMaterial_6ydpi")
-
-[node name="PlaneMesh" type="MeshInstance3D" parent="Ground" unique_id=1482622928]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -102.85242, 0, 0)
-material_override = SubResource("StandardMaterial3D_gfkhe")
-mesh = SubResource("PlaneMesh_gfkhe")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=251787578]
-shape = SubResource("BoxShape3D_6nlyh")
+[node name="Ground" parent="." unique_id=66264329 instance=ExtResource("2_gfkhe")]
 
 [node name="VehicleBody3D" parent="." unique_id=1937499188 instance=ExtResource("2_6nlyh")]
-transform = Transform3D(0.62409776, 0, -0.7813462, 0, 1, 0, 0.7813462, 0, 0.62409776, -700.03564, 1.9999924, 289.20297)
+transform = Transform3D(0.62409776, 0, -0.7813462, 0, 1, 0, 0.7813462, 0, 0.62409776, -700.536, 0.9285402, 289.2952)
 
 [node name="Label3D" type="Label3D" parent="VehicleBody3D" unique_id=391855453]
 transform = Transform3D(-1, 2.262668e-08, -8.444392e-08, 0, 0.9659258, 0.25881904, 8.742278e-08, 0.25881904, -0.9659258, 20, 8, 20)
@@ -95,7 +91,7 @@ visible = false
 offset_left = 40.000004
 offset_top = 45.000004
 offset_right = 190.0
-offset_bottom = 195.0
+offset_bottom = 245.0
 scale = Vector2(2.5747821, 3.4406679)
 theme_override_styles/panel = SubResource("StyleBoxFlat_5kag3")
 
@@ -122,8 +118,18 @@ label_settings = SubResource("LabelSettings_5kag3")
 vertical_alignment = 1
 script = ExtResource("5_he66p")
 
-[node name="TimeLabel3" type="Label" parent="CanvasLayer/Panel/VBoxContainer" unique_id=481933333]
+[node name="PenaltyLabel" type="Label" parent="CanvasLayer/Panel/VBoxContainer" unique_id=481933333]
 layout_mode = 2
-label_settings = SubResource("LabelSettings_gfkhe")
-horizontal_alignment = 1
+label_settings = SubResource("LabelSettings_g7iek")
 vertical_alignment = 1
+script = ExtResource("7_g7iek")
+
+[node name="Debug2" type="MeshInstance3D" parent="." unique_id=2128327323]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -716.25165, 2.8285568, 290.3538)
+visible = false
+mesh = SubResource("BoxMesh_gfkhe")
+
+[node name="Debug1" type="MeshInstance3D" parent="." unique_id=2125617761]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -709.4601, 2.8285558, 296.4333)
+visible = false
+mesh = SubResource("BoxMesh_gfkhe")
