@@ -1,13 +1,14 @@
 extends VehicleBody3D
 
 #Label
-@onready var speed_label = get_node("/root/Game/CanvasLayer/Panel/VBoxContainer/SpeedLabel")
+@onready var speed_label = %SpeedLabel
+@onready var steer_label = %VSeperator
 
 # --- Tunable parameters ---
-var max_engine_force = 25000.0
-var max_steering_angle := 0.6
-var steering_per_unit := 0.15
-var brake_force := 300.0
+var max_engine_force = 1800.0
+var max_steering_angle := 0.5
+var steering_per_unit := 0.1
+var brake_force := 100.0
 var steer := 0.0
 var leftRight = Input.get_axis("steer_left","steer_right")
 var secondCounter := 0.0
@@ -32,6 +33,7 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("reset") or abs(global_position.x) > (960) or abs(global_position.z) > 540:
 		reset_car()
+		get_tree().reload_current_scene()
 	
 	if Input.is_action_pressed("accelerate"):
 		#print(steer)
@@ -58,8 +60,9 @@ func _physics_process(delta):
 	#Counts half a second
 	if secondCounter > 0.5:
 		secondCounter = 0.0
-		speed = linear_velocity.length() * 3.6
+		speed = linear_velocity.length() * 5
 		speed_label.text = "Speed :\n %.1f kmph" % speed
+		steer_label.text = "Steer :\n %.2f rads" % steer
 		
 	
 	# --- APPLY TO VEHICLE ---

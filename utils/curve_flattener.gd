@@ -2,7 +2,7 @@
 extends EditorScript
 
 func _run():
-	var path = get_scene().get_node("Path3D") # change if needed
+	var path = get_scene().get_node("SpaPath") # change if needed
 	var curve = path.curve
 
 	for i in range(curve.point_count):

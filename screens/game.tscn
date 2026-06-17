@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://bxiqylmq2yxls" path="res://screens/vehicle.tscn" id="2_6nlyh"]
 [ext_resource type="PackedScene" uid="uid://dx3nm4384n4n8" path="res://spa_path.tscn" id="2_gfkhe"]
 [ext_resource type="Script" uid="uid://cdncxbukfc3s5" path="res://scripts/label.gd" id="4_gfkhe"]
-[ext_resource type="Script" uid="uid://c7h8kdid14uy8" path="res://scripts/HUDlabels/speed_label.gd" id="5_he66p"]
 [ext_resource type="Script" uid="uid://b3j2d2mth84ab" path="res://scripts/HUDlabels/time_label.gd" id="6_5kag3"]
 [ext_resource type="Script" uid="uid://1jb4fejsrdev" path="res://scripts/HUDlabels/penalty_label.gd" id="7_g7iek"]
 
@@ -24,16 +23,14 @@ ambient_light_sky_contribution = 0.05
 ambient_light_energy = 0.0
 tonemap_exposure = 0.6
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5kag3"]
-bg_color = Color(0.26, 0.26, 0.26, 0.6745098)
-expand_margin_left = 10.0
-expand_margin_top = 10.0
-expand_margin_right = 10.0
-expand_margin_bottom = 10.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gfkhe"]
+bg_color = Color(0.16470589, 0.16470589, 0.16470589, 0.8)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="LabelSettings" id="LabelSettings_gfkhe"]
-font_size = 18
-font_color = Color(6.160736e-06, 0.9676643, 0.5363413, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_5kag3"]
 font_size = 18
@@ -65,7 +62,7 @@ directional_shadow_max_distance = 3000.0
 [node name="Ground" parent="." unique_id=66264329 instance=ExtResource("2_gfkhe")]
 
 [node name="VehicleBody3D" parent="." unique_id=1937499188 instance=ExtResource("2_6nlyh")]
-transform = Transform3D(0.62409776, 0, -0.7813462, 0, 1, 0, 0.7813462, 0, 0.62409776, -700.536, 0.9285402, 289.2952)
+transform = Transform3D(0.62409776, 0, -0.7813462, 0, 1, 0, 0.7813462, 0, 0.62409776, -700.536, 2.126267, 289.2952)
 
 [node name="Label3D" type="Label3D" parent="VehicleBody3D" unique_id=391855453]
 transform = Transform3D(-1, 2.262668e-08, -8.444392e-08, 0, 0.9659258, 0.25881904, 8.742278e-08, 0.25881904, -0.9659258, 20, 8, 20)
@@ -88,37 +85,47 @@ visible = false
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=450948378]
 
 [node name="Panel" type="Panel" parent="CanvasLayer" unique_id=300918855]
-offset_left = 40.000004
-offset_top = 45.000004
-offset_right = 190.0
-offset_bottom = 245.0
-scale = Vector2(2.5747821, 3.4406679)
-theme_override_styles/panel = SubResource("StyleBoxFlat_5kag3")
+offset_left = 40.0
+offset_top = 38.0
+offset_right = 40.0
+offset_bottom = 38.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel" unique_id=1117146689]
-show_behind_parent = true
-z_index = 1
-custom_minimum_size = Vector2(100, 150)
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel" unique_id=1860569430]
 layout_mode = 0
-offset_right = 150.0
-offset_bottom = 150.0
+offset_left = -23.691326
+offset_top = -13.078857
+offset_right = 16.308674
+offset_bottom = 26.921143
 
-[node name="TimeLabel" type="Label" parent="CanvasLayer/Panel/VBoxContainer" unique_id=1469559453]
-custom_minimum_size = Vector2(50, 20)
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Panel/MarginContainer" unique_id=147279258]
 layout_mode = 2
-size_flags_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gfkhe")
+
+[node name="HUD1" type="HBoxContainer" parent="CanvasLayer/Panel/MarginContainer/PanelContainer" unique_id=714424160]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TimeLabel" type="Label" parent="CanvasLayer/Panel/MarginContainer/PanelContainer/HUD1" unique_id=1469559453]
+layout_mode = 2
 label_settings = SubResource("LabelSettings_gfkhe")
-vertical_alignment = 1
 script = ExtResource("6_5kag3")
 
-[node name="SpeedLabel" type="Label" parent="CanvasLayer/Panel/VBoxContainer" unique_id=2006510528]
-custom_minimum_size = Vector2(50, 20)
+[node name="VSeperator" type="Label" parent="CanvasLayer/Panel/MarginContainer/PanelContainer/HUD1" unique_id=2043980584]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SpeedLabel" type="Label" parent="CanvasLayer/Panel/MarginContainer/PanelContainer/HUD1" unique_id=2006510528]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 20)
 layout_mode = 2
 label_settings = SubResource("LabelSettings_5kag3")
-vertical_alignment = 1
-script = ExtResource("5_he66p")
+horizontal_alignment = 1
 
-[node name="PenaltyLabel" type="Label" parent="CanvasLayer/Panel/VBoxContainer" unique_id=481933333]
+[node name="VSeperator2" type="Label" parent="CanvasLayer/Panel/MarginContainer/PanelContainer/HUD1" unique_id=1901900969]
+layout_mode = 2
+
+[node name="PenaltyLabel" type="Label" parent="CanvasLayer/Panel/MarginContainer/PanelContainer/HUD1" unique_id=481933333]
+custom_minimum_size = Vector2(30, 20)
 layout_mode = 2
 label_settings = SubResource("LabelSettings_g7iek")
 vertical_alignment = 1
