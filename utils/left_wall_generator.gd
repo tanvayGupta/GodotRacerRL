@@ -10,7 +10,7 @@ func _run():
 	var root = get_editor_interface().get_edited_scene_root() #Basically the same thing as get_scene() but sicne its deprecated
 	
 	var path : Path3D = root.get_node("SpaPath")
-	var rightMesh : MeshInstance3D = root.get_node("MeshParent/RightMesh")
+	var rightMesh : MeshInstance3D = root.get_node("MeshParent/LeftMesh")
 	
 	var vertices = PackedVector3Array()
 	var curve = path.curve

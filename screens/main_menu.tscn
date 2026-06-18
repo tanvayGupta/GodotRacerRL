@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://bwigw5nrhdcvj"]
+
+[ext_resource type="Script" uid="uid://5jqa0mhd4yyu" path="res://scripts/mainMenu/name.gd" id="1_ocono"]
+[ext_resource type="FontFile" uid="uid://bodyhvotyaqlh" path="res://assets/fonts/Orbitron/static/Orbitron-Bold.ttf" id="1_p3cyw"]
+[ext_resource type="Script" uid="uid://n1fpvditk8t5" path="res://scripts/mainMenu/play.gd" id="1_t3bh0"]
+
+[sub_resource type="Gradient" id="Gradient_csm0v"]
+colors = PackedColorArray(0.6406102, 0.15963557, 0.8529169, 1, 5.1018596e-06, 0.74822634, 0.7541919, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ocono"]
+gradient = SubResource("Gradient_csm0v")
+
+[sub_resource type="LabelSettings" id="LabelSettings_odldw"]
+font = ExtResource("1_p3cyw")
+font_size = 72
+outline_size = 6
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(10, 1)
+
+[node name="MainMenu" type="Control" unique_id=55204967]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t3bh0")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1011551840]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_ocono")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="." unique_id=1941596487]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 114.0
+offset_right = 549.0
+offset_bottom = 205.0
+text = "Racer RL"
+label_settings = SubResource("LabelSettings_odldw")
+script = ExtResource("1_ocono")
+
+[node name="PlayButton" type="Button" parent="." unique_id=2077277592]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -20.0
+offset_right = 50.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "▶ PLAY"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1363263718]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -137.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="HBoxContainer" unique_id=875854522]
+layout_mode = 2
+text = "Cones"
+
+[node name="ConesWalls" type="CheckButton" parent="HBoxContainer" unique_id=111654434]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="HBoxContainer" unique_id=372751105]
+layout_mode = 2
+text = "Walls"
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/ConesWalls" to="." method="_on_cones_walls_pressed"]

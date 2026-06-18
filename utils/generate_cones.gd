@@ -6,7 +6,7 @@ const CONE_SPACING := 16.0
 
 func _run():
 
-	var root = get_scene()
+	var root = get_editor_interface().get_edited_scene_root()
 
 	var path: Path3D = root.get_node("SpaPath")
 	var cones_parent: Node3D = root.get_node("Cones")

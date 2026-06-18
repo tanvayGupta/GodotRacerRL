@@ -2,8 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dq80lua41y4qd" path="res://assets/skies/the_sky_is_on_fire_4k.exr" id="1_g7iek"]
 [ext_resource type="PackedScene" uid="uid://bxiqylmq2yxls" path="res://screens/vehicle.tscn" id="2_6nlyh"]
-[ext_resource type="PackedScene" uid="uid://dx3nm4384n4n8" path="res://spa_path.tscn" id="2_gfkhe"]
-[ext_resource type="Script" uid="uid://cdncxbukfc3s5" path="res://scripts/label.gd" id="4_gfkhe"]
+[ext_resource type="PackedScene" uid="uid://dx3nm4384n4n8" path="res://screens/spa_path.tscn" id="2_gfkhe"]
 [ext_resource type="Script" uid="uid://b3j2d2mth84ab" path="res://scripts/HUDlabels/time_label.gd" id="6_5kag3"]
 [ext_resource type="Script" uid="uid://1jb4fejsrdev" path="res://scripts/HUDlabels/penalty_label.gd" id="7_g7iek"]
 
@@ -64,15 +63,6 @@ directional_shadow_max_distance = 3000.0
 [node name="VehicleBody3D" parent="." unique_id=1937499188 instance=ExtResource("2_6nlyh")]
 transform = Transform3D(0.62409776, 0, -0.7813462, 0, 1, 0, 0.7813462, 0, 0.62409776, -700.536, 2.126267, 289.2952)
 
-[node name="Label3D" type="Label3D" parent="VehicleBody3D" unique_id=391855453]
-transform = Transform3D(-1, 2.262668e-08, -8.444392e-08, 0, 0.9659258, 0.25881904, 8.742278e-08, 0.25881904, -0.9659258, 20, 8, 20)
-visible = false
-pixel_size = 0.05
-text = "Hello"
-font_size = 50
-autowrap_mode = 3
-script = ExtResource("4_gfkhe")
-
 [node name="Camera3D" type="Camera3D" parent="VehicleBody3D" unique_id=1412517217]
 transform = Transform3D(-1, 3.908059e-08, -1.4585073e-07, 0, 0.96592575, 0.25881904, 1.509958e-07, 0.25881904, -0.96592575, 0, 3, -10)
 keep_aspect = 0
@@ -85,17 +75,19 @@ visible = false
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=450948378]
 
 [node name="Panel" type="Panel" parent="CanvasLayer" unique_id=300918855]
-offset_left = 40.0
-offset_top = 38.0
-offset_right = 40.0
-offset_bottom = 38.0
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel" unique_id=1860569430]
-layout_mode = 0
-offset_left = -23.691326
-offset_top = -13.078857
-offset_right = 16.308674
-offset_bottom = 26.921143
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 27.0
+offset_top = 30.0
+offset_bottom = 26.0
+grow_horizontal = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Panel/MarginContainer" unique_id=147279258]
 layout_mode = 2

@@ -1,0 +1,2176 @@
+[gd_scene format=3 uid="uid://dx3nm4384n4n8"]
+
+[ext_resource type="Texture2D" uid="uid://3ah34s1l06m0" path="res://assets/tracksAndBGs/spa.png" id="1_3u6lt"]
+[ext_resource type="Curve3D" uid="uid://ckv437y4wuuhi" path="res://assets/spa/trace1.tres" id="2_a1nos"]
+[ext_resource type="PackedScene" uid="uid://d18axxipwjyjd" path="res://screens/yellow_cone.tscn" id="3_a1nos"]
+[ext_resource type="Script" uid="uid://7gj6kfpxh5gx" path="res://scripts/trackScripts/generator.gd" id="3_icjhc"]
+[ext_resource type="PackedScene" uid="uid://c7m76wpbq6upd" path="res://screens/blue_cone.tscn" id="4_xtwde"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xtwde"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_icjhc"]
+albedo_texture = ExtResource("1_3u6lt")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5kag3"]
+albedo_texture = ExtResource("1_3u6lt")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3jw4t"]
+material = SubResource("StandardMaterial3D_5kag3")
+size = Vector2(1920, 1080)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_a1nos"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xtwde"]
+size = Vector3(20, 1, 1)
+
+[node name="Node3D" type="Node3D" unique_id=66264329]
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=130199214]
+collision_layer = 15
+collision_mask = 15
+physics_material_override = SubResource("PhysicsMaterial_xtwde")
+
+[node name="PlaneMesh" type="MeshInstance3D" parent="Ground" unique_id=1120349737]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -102.85242, 0, 0)
+material_override = SubResource("StandardMaterial3D_icjhc")
+mesh = SubResource("PlaneMesh_3jw4t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=1409840426]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+shape = SubResource("WorldBoundaryShape3D_a1nos")
+
+[node name="SpaPath" type="Path3D" parent="." unique_id=1168735303]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.00655, 1.9073486e-06, 74.879166)
+curve = ExtResource("2_a1nos")
+
+[node name="Generator" type="Node3D" parent="." unique_id=1321187702]
+script = ExtResource("3_icjhc")
+
+[node name="MeshParent" type="Node3D" parent="." unique_id=816136409]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="RightMesh" type="MeshInstance3D" parent="MeshParent" unique_id=216621774]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 0, 77)
+
+[node name="LeftMesh" type="MeshInstance3D" parent="MeshParent" unique_id=1586108166]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 0, 75)
+
+[node name="Checkpoints" type="Node3D" parent="." unique_id=1011830983]
+
+[node name="Checkpoint1" type="Node3D" parent="Checkpoints" unique_id=165424446]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -727, 0, 312)
+
+[node name="Area3D" type="Area3D" parent="Checkpoints/Checkpoint1" unique_id=552068066]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint1/Area3D" unique_id=274244138]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0, 1, 1)
+shape = SubResource("BoxShape3D_xtwde")
+
+[node name="Checkpoint2" type="Node3D" parent="Checkpoints" unique_id=2142694428]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -828, 0, 364)
+
+[node name="Area3D" type="Area3D" parent="Checkpoints/Checkpoint2" unique_id=1869912959]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint2/Area3D" unique_id=1132293520]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0, 1, 1)
+shape = SubResource("BoxShape3D_xtwde")
+
+[node name="Checkpoint3" type="Node3D" parent="Checkpoints" unique_id=1238894780]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -744, 0, 188)
+
+[node name="Area3D" type="Area3D" parent="Checkpoints/Checkpoint3" unique_id=153901474]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint3/Area3D" unique_id=345313406]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0, 1, 1)
+shape = SubResource("BoxShape3D_xtwde")
+
+[node name="Checkpoint4" type="Node3D" parent="Checkpoints" unique_id=1276837035]
+transform = Transform3D(-0.9659258, 0, -0.25881895, 0, 1, 0, 0.25881895, 0, -0.9659258, -522, 0, -70)
+
+[node name="Area3D" type="Area3D" parent="Checkpoints/Checkpoint4" unique_id=322315424]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint4/Area3D" unique_id=994660135]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0, 1, 1)
+shape = SubResource("BoxShape3D_xtwde")
+
+[node name="Checkpoint5" type="Node3D" parent="Checkpoints" unique_id=432313220]
+transform = Transform3D(-0.8660253, 0, 0.5, 0, 1, 0, -0.5, 0, -0.8660253, -220, 0, -269)
+
+[node name="Area3D" type="Area3D" parent="Checkpoints/Checkpoint5" unique_id=1038523180]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint5/Area3D" unique_id=1878811242]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0, 1, 1)
+shape = SubResource("BoxShape3D_xtwde")
+
+[node name="Checkpoint6" type="Node3D" parent="Checkpoints" unique_id=1821049966]
+transform = Transform3D(-0.8660253, 0, 0.5, 0, 1, 0, -0.5, 0, -0.8660253, 275, 0, -444)
+
+[node name="Area3D" type="Area3D" parent="Checkpoints/Checkpoint6" unique_id=2092457310]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint6/Area3D" unique_id=777936766]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0, 1, 1)
+shape = SubResource("BoxShape3D_xtwde")
+
+[node name="Checkpoint7" type="Node3D" parent="Checkpoints" unique_id=555967727]
+transform = Transform3D(-0.8660253, 0, 0.5, 0, 1, 0, -0.5, 0, -0.8660253, 434, 0, -430)
+
+[node name="Area3D" type="Area3D" parent="Checkpoints/Checkpoint7" unique_id=1454138827]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint7/Area3D" unique_id=369671196]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0, 1, 1)
+shape = SubResource("BoxShape3D_xtwde")
+
+[node name="Checkpoint8" type="Node3D" parent="Checkpoints" unique_id=226809824]
+transform = Transform3D(-0.99999994, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, -0.99999994, 630, 0, -211)
+
+[node name="Area3D" type="Area3D" parent="Checkpoints/Checkpoint8" unique_id=632419928]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint8/Area3D" unique_id=1692548067]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0, 1, 1)
+shape = SubResource("BoxShape3D_xtwde")
+
+[node name="Checkpoint9" type="Node3D" parent="Checkpoints" unique_id=462667439]
+transform = Transform3D(-0.9659257, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.9659257, 419, 0, -275)
+
+[node name="Area3D" type="Area3D" parent="Checkpoints/Checkpoint9" unique_id=1966502748]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint9/Area3D" unique_id=1443602940]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0, 1, 1)
+shape = SubResource("BoxShape3D_xtwde")
+
+[node name="Checkpoint10" type="Node3D" parent="Checkpoints" unique_id=653221065]
+transform = Transform3D(-0.9659257, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.9659257, 128, 0, -190)
+
+[node name="Area3D" type="Area3D" parent="Checkpoints/Checkpoint10" unique_id=686479832]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint10/Area3D" unique_id=90528010]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0, 1, 1)
+shape = SubResource("BoxShape3D_xtwde")
+
+[node name="Checkpoint11" type="Node3D" parent="Checkpoints" unique_id=375674361]
+transform = Transform3D(0, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, 0, 156, 0, -25)
+
+[node name="Area3D" type="Area3D" parent="Checkpoints/Checkpoint11" unique_id=1291841858]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint11/Area3D" unique_id=843024933]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0, 1, 1)
+shape = SubResource("BoxShape3D_xtwde")
+
+[node name="Checkpoint12" type="Node3D" parent="Checkpoints" unique_id=585489497]
+transform = Transform3D(0, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, 0, 433, 0, 86)
+
+[node name="Area3D" type="Area3D" parent="Checkpoints/Checkpoint12" unique_id=1995043027]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint12/Area3D" unique_id=1821350525]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0, 1, 1)
+shape = SubResource("BoxShape3D_xtwde")
+
+[node name="Checkpoint13" type="Node3D" parent="Checkpoints" unique_id=561955673]
+transform = Transform3D(0, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, 0, 470, 0, 238)
+
+[node name="Area3D" type="Area3D" parent="Checkpoints/Checkpoint13" unique_id=1935352332]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint13/Area3D" unique_id=163225043]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0, 1, 1)
+shape = SubResource("BoxShape3D_xtwde")
+
+[node name="Checkpoint14" type="Node3D" parent="Checkpoints" unique_id=825035724]
+transform = Transform3D(-0.9659257, 0, -0.25881898, 0, 1, 0, 0.25881898, 0, -0.9659257, 580, 0, 400)
+
+[node name="Area3D" type="Area3D" parent="Checkpoints/Checkpoint14" unique_id=291416204]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint14/Area3D" unique_id=1155252135]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0, 1, 1)
+shape = SubResource("BoxShape3D_xtwde")
+
+[node name="Checkpoint15" type="Node3D" parent="Checkpoints" unique_id=1846709825]
+transform = Transform3D(-0.25881898, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, -0.25881898, 357, 0, 418)
+
+[node name="Area3D" type="Area3D" parent="Checkpoints/Checkpoint15" unique_id=961311761]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint15/Area3D" unique_id=818956462]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0, 1, 1)
+shape = SubResource("BoxShape3D_xtwde")
+
+[node name="Checkpoint16" type="Node3D" parent="Checkpoints" unique_id=50170320]
+transform = Transform3D(-0.25881898, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, -0.25881898, 142, 0, 146)
+
+[node name="Area3D" type="Area3D" parent="Checkpoints/Checkpoint16" unique_id=1167950352]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint16/Area3D" unique_id=1609946076]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0, 1, 1)
+shape = SubResource("BoxShape3D_xtwde")
+
+[node name="Checkpoint17" type="Node3D" parent="Checkpoints" unique_id=893301741]
+transform = Transform3D(-0.49999994, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, -0.49999994, -49.299995, 0, 69.7)
+
+[node name="Area3D" type="Area3D" parent="Checkpoints/Checkpoint17" unique_id=1236438540]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint17/Area3D" unique_id=820509445]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0, 1, 1)
+shape = SubResource("BoxShape3D_xtwde")
+
+[node name="Checkpoint18" type="Node3D" parent="Checkpoints" unique_id=789910542]
+transform = Transform3D(-0.8660253, 0, 0.5, 0, 1, 0, -0.5, 0, -0.8660253, -278.3, 0, 148.7)
+
+[node name="Area3D" type="Area3D" parent="Checkpoints/Checkpoint18" unique_id=208031099]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint18/Area3D" unique_id=1767661738]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0, 1, 1)
+shape = SubResource("BoxShape3D_xtwde")
+
+[node name="Checkpoint19" type="Node3D" parent="Checkpoints" unique_id=1242792464]
+transform = Transform3D(-0.5, 0, 0.8660255, 0, 1, 0, -0.8660255, 0, -0.5, -439.3, 0, 166.7)
+
+[node name="Area3D" type="Area3D" parent="Checkpoints/Checkpoint19" unique_id=1898128058]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint19/Area3D" unique_id=1871438697]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0, 1, 1)
+shape = SubResource("BoxShape3D_xtwde")
+
+[node name="Checkpoint20" type="Node3D" parent="Checkpoints" unique_id=2055393809]
+transform = Transform3D(-0.25881895, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, -0.25881895, -452.3, 0, 137.7)
+
+[node name="Area3D" type="Area3D" parent="Checkpoints/Checkpoint20" unique_id=802625458]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint20/Area3D" unique_id=1225303423]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0, 1, 1)
+shape = SubResource("BoxShape3D_xtwde")
+
+[node name="Checkpoint21" type="Node3D" parent="Checkpoints" unique_id=2037534614]
+transform = Transform3D(-0.9659258, 0, 0.25881907, 0, 1, 0, -0.25881907, 0, -0.9659258, -586.3, 0, 202.7)
+
+[node name="Area3D" type="Area3D" parent="Checkpoints/Checkpoint21" unique_id=976028910]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint21/Area3D" unique_id=234639525]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0, 1, 1)
+shape = SubResource("BoxShape3D_xtwde")
+
+[node name="Cones" type="Node3D" parent="." unique_id=457435198]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 76)
+
+[node name="Node3D" parent="Cones" unique_id=980844507 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3106155, 0, 8.445127)
+
+[node name="@Node3D@162200" parent="Cones" unique_id=777415145 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05261588, 0, -11.073127)
+
+[node name="@Node3D@162201" parent="Cones" unique_id=2005929555 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.925182, 0, 4.954558)
+
+[node name="@Node3D@162202" parent="Cones" unique_id=211265604 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.562028, 0, -14.563715)
+
+[node name="@Node3D@162203" parent="Cones" unique_id=832124974 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.172373, 0, 1.9137931)
+
+[node name="@Node3D@162204" parent="Cones" unique_id=2039048969 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.543842, 0, -17.602615)
+
+[node name="@Node3D@162205" parent="Cones" unique_id=977264017 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.785446, 0, 5.411059)
+
+[node name="@Node3D@162206" parent="Cones" unique_id=112948434 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.15699, 0, -14.105335)
+
+[node name="@Node3D@162207" parent="Cones" unique_id=1721907802 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.39852, 0, 8.908324)
+
+[node name="@Node3D@162208" parent="Cones" unique_id=1626906490 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.770134, 0, -10.608054)
+
+[node name="@Node3D@162209" parent="Cones" unique_id=816255277 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.25414, 0, 12.25281)
+
+[node name="@Node3D@162210" parent="Cones" unique_id=1255593507 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -83.90855, 0, -6.224474)
+
+[node name="@Node3D@162211" parent="Cones" unique_id=61994337 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.03601, 0, 18.376278)
+
+[node name="@Node3D@162212" parent="Cones" unique_id=1247136690 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -98.690384, 0, -0.10102272)
+
+[node name="@Node3D@162213" parent="Cones" unique_id=2048632944 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -105.81787, 0, 24.49974)
+
+[node name="@Node3D@162214" parent="Cones" unique_id=575684311 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -113.472244, 0, 6.02244)
+
+[node name="@Node3D@162215" parent="Cones" unique_id=149248919 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120.59982, 0, 30.623247)
+
+[node name="@Node3D@162216" parent="Cones" unique_id=2008787952 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128.25398, 0, 12.145857)
+
+[node name="@Node3D@162217" parent="Cones" unique_id=1371093742 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -135.38152, 0, 36.74664)
+
+[node name="@Node3D@162218" parent="Cones" unique_id=553981820 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -143.036, 0, 18.269386)
+
+[node name="@Node3D@162219" parent="Cones" unique_id=1169631341 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150.00534, 0, 42.903854)
+
+[node name="@Node3D@162220" parent="Cones" unique_id=46393780 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -157.9039, 0, 24.529604)
+
+[node name="@Node3D@162221" parent="Cones" unique_id=1269904870 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -164.70479, 0, 49.222595)
+
+[node name="@Node3D@162222" parent="Cones" unique_id=467603817 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -172.60335, 0, 30.848349)
+
+[node name="@Node3D@162223" parent="Cones" unique_id=353980986 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -179.40422, 0, 55.541336)
+
+[node name="@Node3D@162224" parent="Cones" unique_id=1511074827 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -187.30278, 0, 37.16709)
+
+[node name="@Node3D@162225" parent="Cones" unique_id=970808004 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -194.10368, 0, 61.860085)
+
+[node name="@Node3D@162226" parent="Cones" unique_id=1167019084 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -202.00224, 0, 43.485832)
+
+[node name="@Node3D@162227" parent="Cones" unique_id=531246394 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -208.80281, 0, 68.17868)
+
+[node name="@Node3D@162228" parent="Cones" unique_id=919123757 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -216.70201, 0, 49.80471)
+
+[node name="@Node3D@162229" parent="Cones" unique_id=1043465088 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -223.5028, 0, 74.497665)
+
+[node name="@Node3D@162230" parent="Cones" unique_id=353960704 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -231.40088, 0, 56.123215)
+
+[node name="@Node3D@162231" parent="Cones" unique_id=1379294096 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -240.75017, 0, 78.91416)
+
+[node name="@Node3D@162232" parent="Cones" unique_id=453478182 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -245.1566, 0, 59.405617)
+
+[node name="@Node3D@162233" parent="Cones" unique_id=1253310001 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -256.35724, 0, 82.439766)
+
+[node name="@Node3D@162234" parent="Cones" unique_id=1101207558 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -260.763, 0, 62.93107)
+
+[node name="@Node3D@162235" parent="Cones" unique_id=1906551809 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -271.96332, 0, 85.96515)
+
+[node name="@Node3D@162236" parent="Cones" unique_id=338404455 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -276.37042, 0, 66.45676)
+
+[node name="@Node3D@162237" parent="Cones" unique_id=1789275801 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -288.99503, 0, 89.65841)
+
+[node name="@Node3D@162238" parent="Cones" unique_id=1356805539 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -290.5665, 0, 69.72024)
+
+[node name="@Node3D@162239" parent="Cones" unique_id=137827770 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -304.94553, 0, 90.91595)
+
+[node name="@Node3D@162240" parent="Cones" unique_id=957609178 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -306.517, 0, 70.977776)
+
+[node name="@Node3D@162241" parent="Cones" unique_id=1857858024 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -320.8958, 0, 92.17348)
+
+[node name="@Node3D@162242" parent="Cones" unique_id=1643128280 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -322.46777, 0, 72.23535)
+
+[node name="@Node3D@162243" parent="Cones" unique_id=994580273 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -336.84653, 0, 93.43104)
+
+[node name="@Node3D@162244" parent="Cones" unique_id=250572983 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -338.418, 0, 73.49287)
+
+[node name="@Node3D@162245" parent="Cones" unique_id=466091758 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -352.79623, 0, 94.688515)
+
+[node name="@Node3D@162246" parent="Cones" unique_id=1991836696 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -354.36923, 0, 74.750465)
+
+[node name="@Node3D@162247" parent="Cones" unique_id=775160908 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -368.74753, 0, 95.94612)
+
+[node name="@Node3D@162248" parent="Cones" unique_id=1425134002 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -370.319, 0, 76.00795)
+
+[node name="@Node3D@162249" parent="Cones" unique_id=1097139693 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -382.70917, 0, 98.03945)
+
+[node name="@Node3D@162250" parent="Cones" unique_id=1849940227 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -387.86658, 0, 78.71587)
+
+[node name="@Node3D@162251" parent="Cones" unique_id=1596058571 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -398.16898, 0, 102.16499)
+
+[node name="@Node3D@162252" parent="Cones" unique_id=1791264386 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -403.32486, 0, 82.841)
+
+[node name="@Node3D@162253" parent="Cones" unique_id=1936128099 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -419.9037, 0, 94.57919)
+
+[node name="@Node3D@162254" parent="Cones" unique_id=2138316897 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -409.4032, 0, 77.55745)
+
+[node name="@Node3D@162255" parent="Cones" unique_id=500149854 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -431.442, 0, 76.32651)
+
+[node name="@Node3D@162256" parent="Cones" unique_id=1092236105 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -412.9617, 0, 68.67929)
+
+[node name="@Node3D@162257" parent="Cones" unique_id=1916625800 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -426.52798, 0, 70.71548)
+
+[node name="@Node3D@162258" parent="Cones" unique_id=1368275377 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -433.2828, 0, 51.89071)
+
+[node name="@Node3D@162259" parent="Cones" unique_id=314757716 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -441.5885, 0, 76.11926)
+
+[node name="@Node3D@162260" parent="Cones" unique_id=1733466149 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -448.3421, 0, 57.294037)
+
+[node name="@Node3D@162261" parent="Cones" unique_id=1223451951 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -455.63336, 0, 81.56635)
+
+[node name="@Node3D@162262" parent="Cones" unique_id=1026884623 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -464.09216, 0, 63.4432)
+
+[node name="@Node3D@162263" parent="Cones" unique_id=283699673 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -470.1334, 0, 88.333336)
+
+[node name="@Node3D@162264" parent="Cones" unique_id=571662740 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -478.5897, 0, 70.20901)
+
+[node name="@Node3D@162265" parent="Cones" unique_id=97353423 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -484.63156, 0, 95.09941)
+
+[node name="@Node3D@162266" parent="Cones" unique_id=1579265825 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -493.08908, 0, 76.97568)
+
+[node name="@Node3D@162267" parent="Cones" unique_id=681315884 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -497.80133, 0, 102.246666)
+
+[node name="@Node3D@162268" parent="Cones" unique_id=1347654747 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -508.02112, 0, 85.05494)
+
+[node name="@Node3D@162269" parent="Cones" unique_id=909300301 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -511.55484, 0, 110.422386)
+
+[node name="@Node3D@162270" parent="Cones" unique_id=703670613 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -521.77466, 0, 93.23066)
+
+[node name="@Node3D@162271" parent="Cones" unique_id=196561285 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -525.3083, 0, 118.598114)
+
+[node name="@Node3D@162272" parent="Cones" unique_id=174355861 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -535.52814, 0, 101.40639)
+
+[node name="@Node3D@162273" parent="Cones" unique_id=2043571647 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -538.219, 0, 127.14285)
+
+[node name="@Node3D@162274" parent="Cones" unique_id=16830548 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -549.3126, 0, 110.50162)
+
+[node name="@Node3D@162275" parent="Cones" unique_id=1543642037 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -551.5314, 0, 136.01868)
+
+[node name="@Node3D@162276" parent="Cones" unique_id=118942688 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -562.625, 0, 119.37743)
+
+[node name="@Node3D@162277" parent="Cones" unique_id=10006551 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -564.84424, 0, 144.89487)
+
+[node name="@Node3D@162278" parent="Cones" unique_id=340608467 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -575.9369, 0, 128.25293)
+
+[node name="@Node3D@162279" parent="Cones" unique_id=61039640 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -578.1566, 0, 153.77069)
+
+[node name="@Node3D@162280" parent="Cones" unique_id=664364049 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -589.24927, 0, 137.12875)
+
+[node name="@Node3D@162281" parent="Cones" unique_id=1300196132 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -591.468, 0, 162.64583)
+
+[node name="@Node3D@162282" parent="Cones" unique_id=12109812 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -602.56274, 0, 146.0053)
+
+[node name="@Node3D@162283" parent="Cones" unique_id=1123352746 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -603.4592, 0, 172.00644)
+
+[node name="@Node3D@162284" parent="Cones" unique_id=1360989508 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -615.8253, 0, 156.28769)
+
+[node name="@Node3D@162285" parent="Cones" unique_id=1354199692 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -616.03503, 0, 181.89636)
+
+[node name="@Node3D@162286" parent="Cones" unique_id=984383972 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -628.4031, 0, 166.17911)
+
+[node name="@Node3D@162287" parent="Cones" unique_id=68546723 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -628.6128, 0, 191.78783)
+
+[node name="@Node3D@162288" parent="Cones" unique_id=2132187147 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -640.9789, 0, 176.06908)
+
+[node name="@Node3D@162289" parent="Cones" unique_id=1020483631 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -641.19244, 0, 201.6808)
+
+[node name="@Node3D@162290" parent="Cones" unique_id=923925485 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -653.5527, 0, 185.95741)
+
+[node name="@Node3D@162291" parent="Cones" unique_id=46250352 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -653.3069, 0, 211.54633)
+
+[node name="@Node3D@162292" parent="Cones" unique_id=1483944154 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -666.24634, 0, 196.29608)
+
+[node name="@Node3D@162293" parent="Cones" unique_id=968045003 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -665.50684, 0, 221.89822)
+
+[node name="@Node3D@162294" parent="Cones" unique_id=47211108 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -678.4463, 0, 206.64801)
+
+[node name="@Node3D@162295" parent="Cones" unique_id=1141679630 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -677.7068, 0, 232.25015)
+
+[node name="@Node3D@162296" parent="Cones" unique_id=1269103063 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -690.64624, 0, 216.99991)
+
+[node name="@Node3D@162297" parent="Cones" unique_id=343943168 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -689.9067, 0, 242.60202)
+
+[node name="@Node3D@162298" parent="Cones" unique_id=1610442525 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -702.8461, 0, 227.3518)
+
+[node name="@Node3D@162299" parent="Cones" unique_id=1405612463 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -701.78253, 0, 253.01393)
+
+[node name="@Node3D@162300" parent="Cones" unique_id=2055837686 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -715.0328, 0, 238.03294)
+
+[node name="@Node3D@162301" parent="Cones" unique_id=141654156 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -713.76447, 0, 263.6157)
+
+[node name="@Node3D@162302" parent="Cones" unique_id=1536613030 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -727.0164, 0, 248.63622)
+
+[node name="@Node3D@162303" parent="Cones" unique_id=1567224148 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -725.74725, 0, 274.2182)
+
+[node name="@Node3D@162304" parent="Cones" unique_id=257385586 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -738.9992, 0, 259.2387)
+
+[node name="@Node3D@162305" parent="Cones" unique_id=2035169931 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -739.31055, 0, 285.8016)
+
+[node name="@Node3D@162306" parent="Cones" unique_id=99312153 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -749.5681, 0, 268.63235)
+
+[node name="@Node3D@162307" parent="Cones" unique_id=1438024767 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -753.0539, 0, 294.00552)
+
+[node name="@Node3D@162308" parent="Cones" unique_id=417762038 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -763.3016, 0, 276.8304)
+
+[node name="@Node3D@162309" parent="Cones" unique_id=1975887527 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -766.7923, 0, 302.20645)
+
+[node name="@Node3D@162310" parent="Cones" unique_id=233825422 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -777.04, 0, 285.03134)
+
+[node name="@Node3D@162311" parent="Cones" unique_id=1181057707 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -788.0518, 0, 304.6487)
+
+[node name="@Node3D@162312" parent="Cones" unique_id=236260268 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -786.67206, 0, 284.69638)
+
+[node name="@Node3D@162313" parent="Cones" unique_id=1994428231 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -807.90515, 0, 293.63226)
+
+[node name="@Node3D@162314" parent="Cones" unique_id=721041485 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -792.2628, 0, 281.16968)
+
+[node name="@Node3D@162315" parent="Cones" unique_id=665828003 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -817.81464, 0, 271.8693)
+
+[node name="@Node3D@162316" parent="Cones" unique_id=2032387489 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -798.5162, 0, 277.11978)
+
+[node name="@Node3D@162317" parent="Cones" unique_id=695521784 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -813.6205, 0, 256.4288)
+
+[node name="@Node3D@162318" parent="Cones" unique_id=580318976 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -794.322, 0, 261.6793)
+
+[node name="@Node3D@162319" parent="Cones" unique_id=337585347 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -809.4266, 0, 240.98865)
+
+[node name="@Node3D@162320" parent="Cones" unique_id=1061539955 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -790.12787, 0, 246.23834)
+
+[node name="@Node3D@162321" parent="Cones" unique_id=851999994 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -801.99615, 0, 224.71942)
+
+[node name="@Node3D@162322" parent="Cones" unique_id=139785187 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -784.0566, 0, 233.56097)
+
+[node name="@Node3D@162323" parent="Cones" unique_id=2091313537 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -794.9202, 0, 210.36908)
+
+[node name="@Node3D@162324" parent="Cones" unique_id=864826527 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -776.98065, 0, 219.21063)
+
+[node name="@Node3D@162325" parent="Cones" unique_id=182277326 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -787.25836, 0, 195.08582)
+
+[node name="@Node3D@162326" parent="Cones" unique_id=1801258277 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -770.399, 0, 205.84506)
+
+[node name="@Node3D@162327" parent="Cones" unique_id=156008533 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -778.64685, 0, 181.60092)
+
+[node name="@Node3D@162328" parent="Cones" unique_id=484861697 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -761.7875, 0, 192.36017)
+
+[node name="@Node3D@162329" parent="Cones" unique_id=2122004896 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -770.03314, 0, 168.11237)
+
+[node name="@Node3D@162330" parent="Cones" unique_id=1391022688 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -753.1784, 0, 178.87888)
+
+[node name="@Node3D@162331" parent="Cones" unique_id=1151737472 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -761.4212, 0, 154.6267)
+
+[node name="@Node3D@162332" parent="Cones" unique_id=1164243788 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -744.5673, 0, 165.3946)
+
+[node name="@Node3D@162333" parent="Cones" unique_id=1729288953 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -751.97327, 0, 140.28653)
+
+[node name="@Node3D@162334" parent="Cones" unique_id=475814283 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -736.5095, 0, 152.97006)
+
+[node name="@Node3D@162335" parent="Cones" unique_id=1144139822 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -741.8316, 0, 127.917274)
+
+[node name="@Node3D@162336" parent="Cones" unique_id=1477412552 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -726.3619, 0, 140.5935)
+
+[node name="@Node3D@162337" parent="Cones" unique_id=1024382609 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -731.68414, 0, 115.54071)
+
+[node name="@Node3D@162338" parent="Cones" unique_id=1749542159 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -716.2204, 0, 128.22424)
+
+[node name="@Node3D@162339" parent="Cones" unique_id=882271066 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -721.54224, 0, 103.17117)
+
+[node name="@Node3D@162340" parent="Cones" unique_id=785042932 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -706.0731, 0, 115.848145)
+
+[node name="@Node3D@162341" parent="Cones" unique_id=2025299807 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -711.3947, 0, 90.794624)
+
+[node name="@Node3D@162342" parent="Cones" unique_id=1383644799 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -695.9316, 0, 103.478905)
+
+[node name="@Node3D@162343" parent="Cones" unique_id=2019981939 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -701.25305, 0, 78.42538)
+
+[node name="@Node3D@162344" parent="Cones" unique_id=1139847368 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -685.78394, 0, 91.10235)
+
+[node name="@Node3D@162345" parent="Cones" unique_id=865729414 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -691.1163, 0, 66.04989)
+
+[node name="@Node3D@162346" parent="Cones" unique_id=1705406568 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -675.6435, 0, 78.722374)
+
+[node name="@Node3D@162347" parent="Cones" unique_id=1247431308 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -680.983, 0, 53.673874)
+
+[node name="@Node3D@162348" parent="Cones" unique_id=1826044745 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -665.5042, 0, 66.33904)
+
+[node name="@Node3D@162349" parent="Cones" unique_id=1881580687 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -670.8436, 0, 41.2903)
+
+[node name="@Node3D@162350" parent="Cones" unique_id=1536244659 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -655.3711, 0, 53.963158)
+
+[node name="@Node3D@162351" parent="Cones" unique_id=610715437 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -660.7075, 0, 28.910822)
+
+[node name="@Node3D@162352" parent="Cones" unique_id=127504805 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -645.23474, 0, 41.583305)
+
+[node name="@Node3D@162353" parent="Cones" unique_id=1059614770 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -650.5713, 0, 16.53119)
+
+[node name="@Node3D@162354" parent="Cones" unique_id=803347338 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -635.0985, 0, 29.203672)
+
+[node name="@Node3D@162355" parent="Cones" unique_id=2085914159 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -640.43506, 0, 4.151547)
+
+[node name="@Node3D@162356" parent="Cones" unique_id=1462756021 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -624.9623, 0, 16.82403)
+
+[node name="@Node3D@162357" parent="Cones" unique_id=836116203 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -628.74927, 0, -7.9774036)
+
+[node name="@Node3D@162358" parent="Cones" unique_id=1747728479 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -614.40076, 0, 5.9552593)
+
+[node name="@Node3D@162359" parent="Cones" unique_id=800323903 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -617.60236, 0, -19.455439)
+
+[node name="@Node3D@162360" parent="Cones" unique_id=1972071071 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -603.25385, 0, -5.5227046)
+
+[node name="@Node3D@162361" parent="Cones" unique_id=440893174 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -606.45245, 0, -30.936441)
+
+[node name="@Node3D@162362" parent="Cones" unique_id=1942388145 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -592.1099, 0, -16.997519)
+
+[node name="@Node3D@162363" parent="Cones" unique_id=1684081438 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -595.3055, 0, -42.414433)
+
+[node name="@Node3D@162364" parent="Cones" unique_id=1911034664 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -580.96295, 0, -28.475512)
+
+[node name="@Node3D@162365" parent="Cones" unique_id=290853512 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -584.16156, 0, -53.889297)
+
+[node name="@Node3D@162366" parent="Cones" unique_id=513231106 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -569.8129, 0, -39.956657)
+
+[node name="@Node3D@162367" parent="Cones" unique_id=1665937262 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -572.56104, 0, -65.731674)
+
+[node name="@Node3D@162368" parent="Cones" unique_id=226497829 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -559.0431, 0, -50.99176)
+
+[node name="@Node3D@162369" parent="Cones" unique_id=1889741694 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -560.76794, 0, -76.54441)
+
+[node name="@Node3D@162370" parent="Cones" unique_id=2032931227 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -547.24963, 0, -61.80488)
+
+[node name="@Node3D@162371" parent="Cones" unique_id=1456568415 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -548.97174, 0, -87.36011)
+
+[node name="@Node3D@162372" parent="Cones" unique_id=651200866 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -535.4594, 0, -72.615005)
+
+[node name="@Node3D@162373" parent="Cones" unique_id=1856264473 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -537.1785, 0, -98.17302)
+
+[node name="@Node3D@162374" parent="Cones" unique_id=888045461 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -523.6662, 0, -83.42792)
+
+[node name="@Node3D@162375" parent="Cones" unique_id=162672202 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -525.3848, 0, -108.986336)
+
+[node name="@Node3D@162376" parent="Cones" unique_id=1234488238 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -511.87335, 0, -94.24047)
+
+[node name="@Node3D@162377" parent="Cones" unique_id=1564276997 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -518.85944, 0, -119.94832)
+
+[node name="@Node3D@162378" parent="Cones" unique_id=1536388344 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -501.42477, 0, -110.14874)
+
+[node name="@Node3D@162379" parent="Cones" unique_id=686528268 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -511.0153, 0, -133.89647)
+
+[node name="@Node3D@162380" parent="Cones" unique_id=696905133 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -493.58322, 0, -124.09226)
+
+[node name="@Node3D@162381" parent="Cones" unique_id=1195769932 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -503.1724, 0, -147.84233)
+
+[node name="@Node3D@162382" parent="Cones" unique_id=976232961 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -485.74033, 0, -138.03813)
+
+[node name="@Node3D@162383" parent="Cones" unique_id=1460226270 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -495.32944, 0, -161.78822)
+
+[node name="@Node3D@162384" parent="Cones" unique_id=1397822249 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -477.89737, 0, -151.98402)
+
+[node name="@Node3D@162385" parent="Cones" unique_id=309667421 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -479.92007, 0, -176.06541)
+
+[node name="@Node3D@162386" parent="Cones" unique_id=1116746708 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -470.5897, 0, -158.3752)
+
+[node name="@Node3D@162387" parent="Cones" unique_id=1632624248 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -465.76764, 0, -183.52931)
+
+[node name="@Node3D@162388" parent="Cones" unique_id=528212370 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -456.43726, 0, -165.8391)
+
+[node name="@Node3D@162389" parent="Cones" unique_id=1797067477 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -451.61523, 0, -190.99321)
+
+[node name="@Node3D@162390" parent="Cones" unique_id=325189675 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -442.28485, 0, -173.303)
+
+[node name="@Node3D@162391" parent="Cones" unique_id=783178496 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -437.4616, 0, -198.45773)
+
+[node name="@Node3D@162392" parent="Cones" unique_id=657102656 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -428.1336, 0, -180.76627)
+
+[node name="@Node3D@162393" parent="Cones" unique_id=448507411 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -423.3117, 0, -205.92032)
+
+[node name="@Node3D@162394" parent="Cones" unique_id=1865898819 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -413.97876, 0, -188.23145)
+
+[node name="@Node3D@162395" parent="Cones" unique_id=484902465 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -409.15695, 0, -213.38544)
+
+[node name="@Node3D@162396" parent="Cones" unique_id=877447648 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -399.82895, 0, -195.69397)
+
+[node name="@Node3D@162397" parent="Cones" unique_id=1336453525 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -395.0045, 0, -220.84935)
+
+[node name="@Node3D@162398" parent="Cones" unique_id=235952956 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -385.67648, 0, -203.15788)
+
+[node name="@Node3D@162399" parent="Cones" unique_id=1054031467 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -382.19724, 0, -228.77078)
+
+[node name="@Node3D@162400" parent="Cones" unique_id=1215374998 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -371.27, 0, -212.01978)
+
+[node name="@Node3D@162401" parent="Cones" unique_id=521750111 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -368.79623, 0, -237.5122)
+
+[node name="@Node3D@162402" parent="Cones" unique_id=27285797 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -357.869, 0, -220.7612)
+
+[node name="@Node3D@162403" parent="Cones" unique_id=729227387 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -355.39517, 0, -246.25368)
+
+[node name="@Node3D@162404" parent="Cones" unique_id=266892539 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -344.46793, 0, -229.50267)
+
+[node name="@Node3D@162405" parent="Cones" unique_id=2139020957 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -340.86124, 0, -255.00063)
+
+[node name="@Node3D@162406" parent="Cones" unique_id=1373697061 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -331.62753, 0, -237.25975)
+
+[node name="@Node3D@162407" parent="Cones" unique_id=384952872 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -326.66928, 0, -262.38925)
+
+[node name="@Node3D@162408" parent="Cones" unique_id=2026623257 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -317.43558, 0, -244.64836)
+
+[node name="@Node3D@162409" parent="Cones" unique_id=1906881253 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -312.4762, 0, -269.77847)
+
+[node name="@Node3D@162410" parent="Cones" unique_id=40780625 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -303.24493, 0, -252.03635)
+
+[node name="@Node3D@162411" parent="Cones" unique_id=878329998 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -298.28683, 0, -277.16574)
+
+[node name="@Node3D@162412" parent="Cones" unique_id=1039463381 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -289.05075, 0, -259.42612)
+
+[node name="@Node3D@162413" parent="Cones" unique_id=1972204507 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -284.09488, 0, -284.55438)
+
+[node name="@Node3D@162414" parent="Cones" unique_id=492528900 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -274.8588, 0, -266.81476)
+
+[node name="@Node3D@162415" parent="Cones" unique_id=1601832624 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -273.1213, 0, -293.1124)
+
+[node name="@Node3D@162416" parent="Cones" unique_id=735955990 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -260.47018, 0, -277.6221)
+
+[node name="@Node3D@162417" parent="Cones" unique_id=1911165244 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -261.44113, 0, -302.7064)
+
+[node name="@Node3D@162418" parent="Cones" unique_id=131419141 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -247.47406, 0, -288.39133)
+
+[node name="@Node3D@162419" parent="Cones" unique_id=1750006214 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -249.98816, 0, -313.87915)
+
+[node name="@Node3D@162420" parent="Cones" unique_id=1073221028 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -236.02109, 0, -299.5641)
+
+[node name="@Node3D@162421" parent="Cones" unique_id=1348788323 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -238.53531, 0, -325.05182)
+
+[node name="@Node3D@162422" parent="Cones" unique_id=516058021 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -224.5682, 0, -310.73676)
+
+[node name="@Node3D@162423" parent="Cones" unique_id=1209094150 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -227.08237, 0, -336.22455)
+
+[node name="@Node3D@162424" parent="Cones" unique_id=1534029997 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -213.1153, 0, -321.9095)
+
+[node name="@Node3D@162425" parent="Cones" unique_id=2054709520 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -211.24573, 0, -347.13757)
+
+[node name="@Node3D@162426" parent="Cones" unique_id=2136520017 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -203.02283, 0, -328.9062)
+
+[node name="@Node3D@162427" parent="Cones" unique_id=1252214357 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -196.65913, 0, -353.71243)
+
+[node name="@Node3D@162428" parent="Cones" unique_id=1760532310 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -188.43623, 0, -335.48105)
+
+[node name="@Node3D@162429" parent="Cones" unique_id=1042530128 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -182.06937, 0, -360.28873)
+
+[node name="@Node3D@162430" parent="Cones" unique_id=418243583 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -173.85269, 0, -342.05453)
+
+[node name="@Node3D@162431" parent="Cones" unique_id=968705485 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -167.48582, 0, -366.86212)
+
+[node name="@Node3D@162432" parent="Cones" unique_id=72203836 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -159.26292, 0, -348.63074)
+
+[node name="@Node3D@162433" parent="Cones" unique_id=93915301 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -152.8966, 0, -373.43817)
+
+[node name="@Node3D@162434" parent="Cones" unique_id=1031894595 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -144.67877, 0, -355.20447)
+
+[node name="@Node3D@162435" parent="Cones" unique_id=584840630 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -138.30989, 0, -380.01306)
+
+[node name="@Node3D@162436" parent="Cones" unique_id=1872301860 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -130.09206, 0, -361.77936)
+
+[node name="@Node3D@162437" parent="Cones" unique_id=2084640448 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -123.722916, 0, -386.58807)
+
+[node name="@Node3D@162438" parent="Cones" unique_id=1104502404 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -115.50566, 0, -368.35413)
+
+[node name="@Node3D@162439" parent="Cones" unique_id=576914336 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -109.13656, 0, -393.16278)
+
+[node name="@Node3D@162440" parent="Cones" unique_id=1816954835 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.918724, 0, -374.92908)
+
+[node name="@Node3D@162441" parent="Cones" unique_id=1468292535 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -94.54984, 0, -399.73767)
+
+[node name="@Node3D@162442" parent="Cones" unique_id=1407881464 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.33201, 0, -381.50397)
+
+[node name="@Node3D@162443" parent="Cones" unique_id=1228376872 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.965614, 0, -406.3114)
+
+[node name="@Node3D@162444" parent="Cones" unique_id=1064437718 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.742714, 0, -388.08002)
+
+[node name="@Node3D@162445" parent="Cones" unique_id=1450099579 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.119633, 0, -411.39905)
+
+[node name="@Node3D@162446" parent="Cones" unique_id=2023222390 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.967136, 0, -392.07416)
+
+[node name="@Node3D@162447" parent="Cones" unique_id=622334557 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.659645, 0, -415.52075)
+
+[node name="@Node3D@162448" parent="Cones" unique_id=1103966141 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.50715, 0, -396.19586)
+
+[node name="@Node3D@162449" parent="Cones" unique_id=1759028394 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.199677, 0, -419.64252)
+
+[node name="@Node3D@162450" parent="Cones" unique_id=1821146616 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.047087, 0, -400.31763)
+
+[node name="@Node3D@162451" parent="Cones" unique_id=335505067 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.739695, 0, -423.76422)
+
+[node name="@Node3D@162452" parent="Cones" unique_id=388190928 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.587058, 0, -404.43933)
+
+[node name="@Node3D@162453" parent="Cones" unique_id=481910009 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4418206, 0, -427.96222)
+
+[node name="@Node3D@162454" parent="Cones" unique_id=1117069347 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9734087, 0, -408.7093)
+
+[node name="@Node3D@162455" parent="Cones" unique_id=1655721498 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.957823, 0, -432.2944)
+
+[node name="@Node3D@162456" parent="Cones" unique_id=917489275 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.378119, 0, -413.04288)
+
+[node name="@Node3D@162457" parent="Cones" unique_id=684393777 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.362688, 0, -436.628)
+
+[node name="@Node3D@162458" parent="Cones" unique_id=1859471888 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.777534, 0, -417.37494)
+
+[node name="@Node3D@162459" parent="Cones" unique_id=311323004 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.764736, 0, -440.96085)
+
+[node name="@Node3D@162460" parent="Cones" unique_id=309198534 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.179585, 0, -421.7078)
+
+[node name="@Node3D@162461" parent="Cones" unique_id=1356659449 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.16676, 0, -445.29364)
+
+[node name="@Node3D@162462" parent="Cones" unique_id=1709614512 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.581604, 0, -426.0406)
+
+[node name="@Node3D@162463" parent="Cones" unique_id=1751140424 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.5689, 0, -449.62646)
+
+[node name="@Node3D@162464" parent="Cones" unique_id=2043138369 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.98394, 0, -430.37347)
+
+[node name="@Node3D@162465" parent="Cones" unique_id=915191467 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91.00442, 0, -453.9571)
+
+[node name="@Node3D@162466" parent="Cones" unique_id=982119423 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96.35856, 0, -434.68707)
+
+[node name="@Node3D@162467" parent="Cones" unique_id=730623994 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106.4173, 0, -458.24097)
+
+[node name="@Node3D@162468" parent="Cones" unique_id=1139519279 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 111.7767, 0, -438.9724)
+
+[node name="@Node3D@162469" parent="Cones" unique_id=1001544982 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 121.832954, 0, -462.52557)
+
+[node name="@Node3D@162470" parent="Cones" unique_id=1673244174 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 127.19236, 0, -443.25702)
+
+[node name="@Node3D@162471" parent="Cones" unique_id=1824705054 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 137.25156, 0, -466.811)
+
+[node name="@Node3D@162472" parent="Cones" unique_id=1964315223 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 142.60492, 0, -447.5408)
+
+[node name="@Node3D@162473" parent="Cones" unique_id=78483999 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 152.66681, 0, -471.09552)
+
+[node name="@Node3D@162474" parent="Cones" unique_id=1658952923 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158.02094, 0, -451.8255)
+
+[node name="@Node3D@162475" parent="Cones" unique_id=2004503873 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 167.00955, 0, -475.10797)
+
+[node name="@Node3D@162476" parent="Cones" unique_id=736891629 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 174.4542, 0, -456.54517)
+
+[node name="@Node3D@162477" parent="Cones" unique_id=1387630952 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 181.85555, 0, -481.06558)
+
+[node name="@Node3D@162478" parent="Cones" unique_id=1286725281 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 189.30647, 0, -462.50534)
+
+[node name="@Node3D@162479" parent="Cones" unique_id=1327054644 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 196.70471, 0, -487.0245)
+
+[node name="@Node3D@162480" parent="Cones" unique_id=1201200864 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 204.15564, 0, -468.46426)
+
+[node name="@Node3D@162481" parent="Cones" unique_id=1477637575 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 211.55614, 0, -492.98438)
+
+[node name="@Node3D@162482" parent="Cones" unique_id=48916541 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 219.00182, 0, -474.422)
+
+[node name="@Node3D@162483" parent="Cones" unique_id=641455042 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 226.40448, 0, -498.943)
+
+[node name="@Node3D@162484" parent="Cones" unique_id=1234541986 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 233.85123, 0, -480.38104)
+
+[node name="@Node3D@162485" parent="Cones" unique_id=764327216 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 241.25145, 0, -504.90097)
+
+[node name="@Node3D@162486" parent="Cones" unique_id=225363929 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 248.70238, 0, -486.34073)
+
+[node name="@Node3D@162487" parent="Cones" unique_id=2091856206 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 256.10056, 0, -510.8599)
+
+[node name="@Node3D@162488" parent="Cones" unique_id=1307389045 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 263.55148, 0, -492.29965)
+
+[node name="@Node3D@162489" parent="Cones" unique_id=30324025 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 271.26483, 0, -516.6125)
+
+[node name="@Node3D@162490" parent="Cones" unique_id=802579340 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 278.3073, 0, -497.89343)
+
+[node name="@Node3D@162491" parent="Cones" unique_id=778659105 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 286.24255, 0, -522.2481)
+
+[node name="@Node3D@162492" parent="Cones" unique_id=604933017 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 293.27972, 0, -503.52704)
+
+[node name="@Node3D@162493" parent="Cones" unique_id=913404048 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 301.2122, 0, -527.8807)
+
+[node name="@Node3D@162494" parent="Cones" unique_id=123839885 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 308.26004, 0, -509.16364)
+
+[node name="@Node3D@162495" parent="Cones" unique_id=1299878220 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 316.1916, 0, -533.51697)
+
+[node name="@Node3D@162496" parent="Cones" unique_id=1046667233 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 323.23077, 0, -514.79663)
+
+[node name="@Node3D@162497" parent="Cones" unique_id=1541543485 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 335.77283, 0, -539.3016)
+
+[node name="@Node3D@162498" parent="Cones" unique_id=1590413616 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 333.71216, 0, -519.408)
+
+[node name="@Node3D@162499" parent="Cones" unique_id=1842197537 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 351.68768, 0, -537.65204)
+
+[node name="@Node3D@162500" parent="Cones" unique_id=2086463814 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 349.627, 0, -517.7585)
+
+[node name="@Node3D@162501" parent="Cones" unique_id=1530684296 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 370.93164, 0, -531.72546)
+
+[node name="@Node3D@162502" parent="Cones" unique_id=1162044301 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 360.28345, 0, -514.7958)
+
+[node name="@Node3D@162503" parent="Cones" unique_id=1435873800 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 384.47632, 0, -523.20856)
+
+[node name="@Node3D@162504" parent="Cones" unique_id=2069827606 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 373.82813, 0, -506.27884)
+
+[node name="@Node3D@162505" parent="Cones" unique_id=415260440 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 398.01968, 0, -514.6925)
+
+[node name="@Node3D@162506" parent="Cones" unique_id=1448064702 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 387.37424, 0, -497.76105)
+
+[node name="@Node3D@162507" parent="Cones" unique_id=480866467 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 410.3028, 0, -506.84814)
+
+[node name="@Node3D@162508" parent="Cones" unique_id=1776005978 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 402.1806, 0, -488.57166)
+
+[node name="@Node3D@162509" parent="Cones" unique_id=668557146 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 424.38397, 0, -502.86)
+
+[node name="@Node3D@162510" parent="Cones" unique_id=1062399390 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 418.82916, 0, -483.64685)
+
+[node name="@Node3D@162511" parent="Cones" unique_id=1922781057 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 432.23798, 0, -505.42297)
+
+[node name="@Node3D@162512" parent="Cones" unique_id=246160423 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 440.58972, 0, -487.25024)
+
+[node name="@Node3D@162513" parent="Cones" unique_id=1753794020 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 446.7773, 0, -512.1055)
+
+[node name="@Node3D@162514" parent="Cones" unique_id=1287183154 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 455.12637, 0, -493.93155)
+
+[node name="@Node3D@162515" parent="Cones" unique_id=1272502476 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 461.3154, 0, -518.7875)
+
+[node name="@Node3D@162516" parent="Cones" unique_id=1673359669 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 469.66446, 0, -500.6135)
+
+[node name="@Node3D@162517" parent="Cones" unique_id=756322453 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 480.39597, 0, -525.3855)
+
+[node name="@Node3D@162518" parent="Cones" unique_id=1017983395 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 480.07883, 0, -505.38803)
+
+[node name="@Node3D@162519" parent="Cones" unique_id=62746299 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 496.39383, 0, -525.127)
+
+[node name="@Node3D@162520" parent="Cones" unique_id=78611460 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 496.0767, 0, -505.12955)
+
+[node name="@Node3D@162521" parent="Cones" unique_id=1805740110 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 516.5644, 0, -518.345)
+
+[node name="@Node3D@162522" parent="Cones" unique_id=1517956530 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 504.82053, 0, -502.156)
+
+[node name="@Node3D@162523" parent="Cones" unique_id=397608711 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 529.51544, 0, -508.947)
+
+[node name="@Node3D@162524" parent="Cones" unique_id=1194646431 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 517.76874, 0, -492.76016)
+
+[node name="@Node3D@162525" parent="Cones" unique_id=1685019783 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 543.6698, 0, -498.1893)
+
+[node name="@Node3D@162526" parent="Cones" unique_id=2140292320 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 529.20825, 0, -484.374)
+
+[node name="@Node3D@162527" parent="Cones" unique_id=419506981 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 554.722, 0, -486.61993)
+
+[node name="@Node3D@162528" parent="Cones" unique_id=678643672 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 540.26044, 0, -472.80463)
+
+[node name="@Node3D@162529" parent="Cones" unique_id=57700842 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 565.7742, 0, -475.05048)
+
+[node name="@Node3D@162530" parent="Cones" unique_id=1341409453 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 551.3126, 0, -461.23517)
+
+[node name="@Node3D@162531" parent="Cones" unique_id=525225264 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 576.8264, 0, -463.481)
+
+[node name="@Node3D@162532" parent="Cones" unique_id=648840981 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 562.36487, 0, -449.66568)
+
+[node name="@Node3D@162533" parent="Cones" unique_id=331085435 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 587.87854, 0, -451.91162)
+
+[node name="@Node3D@162534" parent="Cones" unique_id=1927472959 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 573.417, 0, -438.0963)
+
+[node name="@Node3D@162535" parent="Cones" unique_id=1695818096 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 598.9358, 0, -439.8855)
+
+[node name="@Node3D@162536" parent="Cones" unique_id=671592414 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 584.0145, 0, -426.568)
+
+[node name="@Node3D@162537" parent="Cones" unique_id=1198919353 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 609.5899, 0, -427.94855)
+
+[node name="@Node3D@162538" parent="Cones" unique_id=1061227810 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 594.66864, 0, -414.63104)
+
+[node name="@Node3D@162539" parent="Cones" unique_id=1906872978 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 620.2453, 0, -416.0101)
+
+[node name="@Node3D@162540" parent="Cones" unique_id=222211849 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 605.32135, 0, -402.6956)
+
+[node name="@Node3D@162541" parent="Cones" unique_id=1226087199 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 630.89795, 0, -404.07465)
+
+[node name="@Node3D@162542" parent="Cones" unique_id=325829628 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 615.9767, 0, -390.75714)
+
+[node name="@Node3D@162543" parent="Cones" unique_id=1852815513 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 641.5535, 0, -392.13608)
+
+[node name="@Node3D@162544" parent="Cones" unique_id=2027949333 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 626.6296, 0, -378.82156)
+
+[node name="@Node3D@162545" parent="Cones" unique_id=1756356097 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 652.0824, 0, -379.68997)
+
+[node name="@Node3D@162546" parent="Cones" unique_id=1018058012 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 636.7621, 0, -366.8336)
+
+[node name="@Node3D@162547" parent="Cones" unique_id=1486666488 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 662.37067, 0, -367.43625)
+
+[node name="@Node3D@162548" parent="Cones" unique_id=965402431 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 647.05035, 0, -354.57986)
+
+[node name="@Node3D@162549" parent="Cones" unique_id=1754419065 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 672.82306, 0, -351.08105)
+
+[node name="@Node3D@162550" parent="Cones" unique_id=249166773 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 653.90875, 0, -344.58118)
+
+[node name="@Node3D@162551" parent="Cones" unique_id=1839335034 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 678.01917, 0, -335.9483)
+
+[node name="@Node3D@162552" parent="Cones" unique_id=995091223 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 659.10486, 0, -329.44843)
+
+[node name="@Node3D@162553" parent="Cones" unique_id=1950888758 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 681.84894, 0, -315.00885)
+
+[node name="@Node3D@162554" parent="Cones" unique_id=1809316082 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 662.481, 0, -319.9972)
+
+[node name="@Node3D@162555" parent="Cones" unique_id=371879450 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 677.85486, 0, -299.5092)
+
+[node name="@Node3D@162556" parent="Cones" unique_id=1412032106 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 658.48987, 0, -304.50894)
+
+[node name="@Node3D@162557" parent="Cones" unique_id=1831378899 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 664.6609, 0, -280.9196)
+
+[node name="@Node3D@162558" parent="Cones" unique_id=799611842 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 655.4542, 0, -298.67447)
+
+[node name="@Node3D@162559" parent="Cones" unique_id=2033539507 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 650.45624, 0, -273.5556)
+
+[node name="@Node3D@162560" parent="Cones" unique_id=478776640 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 641.2496, 0, -291.3105)
+
+[node name="@Node3D@162561" parent="Cones" unique_id=1815290 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 629.5583, 0, -269.65262)
+
+[node name="@Node3D@162562" parent="Cones" unique_id=333219724 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 632.15607, 0, -289.4832)
+
+[node name="@Node3D@162563" parent="Cones" unique_id=295614497 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 613.69696, 0, -271.7294)
+
+[node name="@Node3D@162564" parent="Cones" unique_id=1528822531 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 616.28876, 0, -291.56076)
+
+[node name="@Node3D@162565" parent="Cones" unique_id=415958822 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 595.2203, 0, -283.63672)
+
+[node name="@Node3D@162566" parent="Cones" unique_id=652383950 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 609.9737, 0, -297.1399)
+
+[node name="@Node3D@162567" parent="Cones" unique_id=1261643981 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 584.41547, 0, -295.43732)
+
+[node name="@Node3D@162568" parent="Cones" unique_id=1592947918 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 599.1689, 0, -308.9405)
+
+[node name="@Node3D@162569" parent="Cones" unique_id=1867894869 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 573.6138, 0, -307.2346)
+
+[node name="@Node3D@162570" parent="Cones" unique_id=1675151330 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 588.3612, 0, -320.74442)
+
+[node name="@Node3D@162571" parent="Cones" unique_id=529158580 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 562.82336, 0, -319.1154)
+
+[node name="@Node3D@162572" parent="Cones" unique_id=548337182 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 577.6376, 0, -332.55185)
+
+[node name="@Node3D@162573" parent="Cones" unique_id=1223141339 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 552.07465, 0, -330.97342)
+
+[node name="@Node3D@162574" parent="Cones" unique_id=1135579433 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 566.89496, 0, -344.40317)
+
+[node name="@Node3D@162575" parent="Cones" unique_id=1417693378 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 541.3291, 0, -342.82803)
+
+[node name="@Node3D@162576" parent="Cones" unique_id=1674278467 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 556.1494, 0, -356.25778)
+
+[node name="@Node3D@162577" parent="Cones" unique_id=1963772505 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 530.9184, 0, -352.01755)
+
+[node name="@Node3D@162578" parent="Cones" unique_id=1090338016 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 542.71844, 0, -368.16562)
+
+[node name="@Node3D@162579" parent="Cones" unique_id=1052543913 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 517.99963, 0, -361.45758)
+
+[node name="@Node3D@162580" parent="Cones" unique_id=422932065 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 529.7997, 0, -377.60565)
+
+[node name="@Node3D@162581" parent="Cones" unique_id=2466242 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 510.1679, 0, -360.386)
+
+[node name="@Node3D@162582" parent="Cones" unique_id=1130429017 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 507.424, 0, -380.19684)
+
+[node name="@Node3D@162583" parent="Cones" unique_id=1981596401 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 494.3227, 0, -358.18857)
+
+[node name="@Node3D@162584" parent="Cones" unique_id=619298759 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 491.5728, 0, -377.99863)
+
+[node name="@Node3D@162585" parent="Cones" unique_id=453779973 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 478.4714, 0, -355.99023)
+
+[node name="@Node3D@162586" parent="Cones" unique_id=244007972 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 475.7275, 0, -375.80115)
+
+[node name="@Node3D@162587" parent="Cones" unique_id=1123041384 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 466.65057, 0, -350.54675)
+
+[node name="@Node3D@162588" parent="Cones" unique_id=858171256 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 458.247, 0, -368.69556)
+
+[node name="@Node3D@162589" parent="Cones" unique_id=982965609 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 452.13373, 0, -343.82327)
+
+[node name="@Node3D@162590" parent="Cones" unique_id=389505840 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 443.72742, 0, -361.97086)
+
+[node name="@Node3D@162591" parent="Cones" unique_id=886804102 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 437.61554, 0, -337.09915)
+
+[node name="@Node3D@162592" parent="Cones" unique_id=282800687 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 429.20923, 0, -355.24673)
+
+[node name="@Node3D@162593" parent="Cones" unique_id=777898524 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 421.71, 0, -330.2381)
+
+[node name="@Node3D@162594" parent="Cones" unique_id=872391037 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 415.81326, 0, -349.34906)
+
+[node name="@Node3D@162595" parent="Cones" unique_id=543852596 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 406.4245, 0, -325.52026)
+
+[node name="@Node3D@162596" parent="Cones" unique_id=536673506 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 400.52222, 0, -344.62952)
+
+[node name="@Node3D@162597" parent="Cones" unique_id=2102858970 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 391.13602, 0, -320.8015)
+
+[node name="@Node3D@162598" parent="Cones" unique_id=1611865494 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 385.23373, 0, -339.91077)
+
+[node name="@Node3D@162599" parent="Cones" unique_id=912911929 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 375.84393, 0, -316.08163)
+
+[node name="@Node3D@162600" parent="Cones" unique_id=2102001353 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 369.9489, 0, -335.19315)
+
+[node name="@Node3D@162601" parent="Cones" unique_id=491823186 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 360.55923, 0, -311.36404)
+
+[node name="@Node3D@162602" parent="Cones" unique_id=759705001 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 354.65695, 0, -330.4733)
+
+[node name="@Node3D@162603" parent="Cones" unique_id=693726431 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 345.26804, 0, -306.64444)
+
+[node name="@Node3D@162604" parent="Cones" unique_id=451434996 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 339.3713, 0, -325.7554)
+
+[node name="@Node3D@162605" parent="Cones" unique_id=717300939 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 329.98245, 0, -301.92657)
+
+[node name="@Node3D@162606" parent="Cones" unique_id=996902266 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 324.08017, 0, -321.03583)
+
+[node name="@Node3D@162607" parent="Cones" unique_id=768492025 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 314.6914, 0, -297.207)
+
+[node name="@Node3D@162608" parent="Cones" unique_id=211915182 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 308.79468, 0, -316.31796)
+
+[node name="@Node3D@162609" parent="Cones" unique_id=1985854304 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 299.1625, 0, -292.603)
+
+[node name="@Node3D@162610" parent="Cones" unique_id=1964836390 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 293.64474, 0, -311.8268)
+
+[node name="@Node3D@162611" parent="Cones" unique_id=589208197 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 283.7835, 0, -288.189)
+
+[node name="@Node3D@162612" parent="Cones" unique_id=2077213230 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 278.26575, 0, -307.4128)
+
+[node name="@Node3D@162613" parent="Cones" unique_id=1716020127 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 268.4016, 0, -283.7741)
+
+[node name="@Node3D@162614" parent="Cones" unique_id=1774483768 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 262.88947, 0, -302.9995)
+
+[node name="@Node3D@162615" parent="Cones" unique_id=2039476203 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 251.46707, 0, -280.57626)
+
+[node name="@Node3D@162616" parent="Cones" unique_id=2116853333 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 248.41217, 0, -300.34158)
+
+[node name="@Node3D@162617" parent="Cones" unique_id=1389255144 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235.65146, 0, -278.13376)
+
+[node name="@Node3D@162618" parent="Cones" unique_id=1498107146 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 232.60254, 0, -297.9)
+
+[node name="@Node3D@162619" parent="Cones" unique_id=50794136 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 219.84187, 0, -275.69223)
+
+[node name="@Node3D@162620" parent="Cones" unique_id=1535708616 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 216.78697, 0, -295.45755)
+
+[node name="@Node3D@162621" parent="Cones" unique_id=933535918 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 204.0293, 0, -273.25024)
+
+[node name="@Node3D@162622" parent="Cones" unique_id=2062724271 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200.9744, 0, -293.01556)
+
+[node name="@Node3D@162623" parent="Cones" unique_id=2110882471 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 188.21361, 0, -270.80774)
+
+[node name="@Node3D@162624" parent="Cones" unique_id=107823856 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 185.16469, 0, -290.57397)
+
+[node name="@Node3D@162625" parent="Cones" unique_id=1570263105 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 176.89717, 0, -264.81927)
+
+[node name="@Node3D@162626" parent="Cones" unique_id=2005228543 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 167.78743, 0, -282.62415)
+
+[node name="@Node3D@162627" parent="Cones" unique_id=1396301670 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 162.65352, 0, -257.5314)
+
+[node name="@Node3D@162628" parent="Cones" unique_id=889551749 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 153.54378, 0, -275.33627)
+
+[node name="@Node3D@162629" parent="Cones" unique_id=1194080424 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 159.78958, 0, -248.01027)
+
+[node name="@Node3D@162630" parent="Cones" unique_id=190278949 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 141.7861, 0, -256.72086)
+
+[node name="@Node3D@162631" parent="Cones" unique_id=1888395731 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 154.88045, 0, -238.88641)
+
+[node name="@Node3D@162632" parent="Cones" unique_id=2139446095 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 135.00536, 0, -236.6547)
+
+[node name="@Node3D@162633" parent="Cones" unique_id=1520529559 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 156.66579, 0, -222.98624)
+
+[node name="@Node3D@162634" parent="Cones" unique_id=1876056963 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 136.7907, 0, -220.75452)
+
+[node name="@Node3D@162635" parent="Cones" unique_id=1565670132 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158.45114, 0, -207.08601)
+
+[node name="@Node3D@162636" parent="Cones" unique_id=203496564 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 138.57605, 0, -204.8543)
+
+[node name="@Node3D@162637" parent="Cones" unique_id=1819996620 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 160.23648, 0, -191.18584)
+
+[node name="@Node3D@162638" parent="Cones" unique_id=1730599380 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140.36139, 0, -188.95412)
+
+[node name="@Node3D@162639" parent="Cones" unique_id=2006692533 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 162.22804, 0, -176.68011)
+
+[node name="@Node3D@162640" parent="Cones" unique_id=203054647 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 142.82753, 0, -171.82007)
+
+[node name="@Node3D@162641" parent="Cones" unique_id=1434684713 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 166.1157, 0, -161.15945)
+
+[node name="@Node3D@162642" parent="Cones" unique_id=1634563957 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 146.7152, 0, -156.29941)
+
+[node name="@Node3D@162643" parent="Cones" unique_id=2108188621 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 170.00336, 0, -145.63885)
+
+[node name="@Node3D@162644" parent="Cones" unique_id=1505098779 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150.60284, 0, -140.77881)
+
+[node name="@Node3D@162645" parent="Cones" unique_id=1025285998 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 172.33669, 0, -134.10628)
+
+[node name="@Node3D@162646" parent="Cones" unique_id=1759138760 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 156.72346, 0, -121.60718)
+
+[node name="@Node3D@162647" parent="Cones" unique_id=1691973803 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 182.33575, 0, -121.61411)
+
+[node name="@Node3D@162648" parent="Cones" unique_id=2020781069 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 166.72107, 0, -109.11686)
+
+[node name="@Node3D@162649" parent="Cones" unique_id=836987133 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 192.3333, 0, -109.123825)
+
+[node name="@Node3D@162650" parent="Cones" unique_id=347260812 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 176.72008, 0, -96.624725)
+
+[node name="@Node3D@162651" parent="Cones" unique_id=1332920667 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 202.33162, 0, -96.6326)
+
+[node name="@Node3D@162652" parent="Cones" unique_id=594048915 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 186.7184, 0, -84.1335)
+
+[node name="@Node3D@162653" parent="Cones" unique_id=1213528246 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 212.11592, 0, -91.44957)
+
+[node name="@Node3D@162654" parent="Cones" unique_id=1323790304 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 203.85237, 0, -73.23656)
+
+[node name="@Node3D@162655" parent="Cones" unique_id=1571121931 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 226.68707, 0, -84.8387)
+
+[node name="@Node3D@162656" parent="Cones" unique_id=801531279 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 218.4224, 0, -66.626205)
+
+[node name="@Node3D@162657" parent="Cones" unique_id=1381859700 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 241.25624, 0, -78.22873)
+
+[node name="@Node3D@162658" parent="Cones" unique_id=515358711 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 232.99397, 0, -60.015137)
+
+[node name="@Node3D@162659" parent="Cones" unique_id=130668591 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 255.82698, 0, -71.61804)
+
+[node name="@Node3D@162660" parent="Cones" unique_id=866975476 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 247.56407, 0, -53.404743)
+
+[node name="@Node3D@162661" parent="Cones" unique_id=1256028751 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 270.3974, 0, -65.00751)
+
+[node name="@Node3D@162662" parent="Cones" unique_id=727283779 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 262.13452, 0, -46.79421)
+
+[node name="@Node3D@162663" parent="Cones" unique_id=1315746533 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 283.9448, 0, -60.267467)
+
+[node name="@Node3D@162664" parent="Cones" unique_id=1956770743 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 278.6863, 0, -40.971134)
+
+[node name="@Node3D@162665" parent="Cones" unique_id=619139592 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 299.3826, 0, -56.05951)
+
+[node name="@Node3D@162666" parent="Cones" unique_id=1738377750 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 294.1226, 0, -36.763596)
+
+[node name="@Node3D@162667" parent="Cones" unique_id=82617111 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 314.8187, 0, -51.852016)
+
+[node name="@Node3D@162668" parent="Cones" unique_id=54258942 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 309.5602, 0, -32.555683)
+
+[node name="@Node3D@162669" parent="Cones" unique_id=160967866 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 330.25635, 0, -47.644096)
+
+[node name="@Node3D@162670" parent="Cones" unique_id=1582899715 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 324.99634, 0, -28.348188)
+
+[node name="@Node3D@162671" parent="Cones" unique_id=972346945 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 345.6928, 0, -43.43651)
+
+[node name="@Node3D@162672" parent="Cones" unique_id=1797441553 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 340.4336, 0, -24.140371)
+
+[node name="@Node3D@162673" parent="Cones" unique_id=1501566074 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 361.1303, 0, -39.22863)
+
+[node name="@Node3D@162674" parent="Cones" unique_id=1032847906 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 355.86957, 0, -19.932917)
+
+[node name="@Node3D@162675" parent="Cones" unique_id=671460606 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 376.56628, 0, -35.02117)
+
+[node name="@Node3D@162676" parent="Cones" unique_id=479466979 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 371.30743, 0, -15.724937)
+
+[node name="@Node3D@162677" parent="Cones" unique_id=1861159502 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 392.00385, 0, -30.813274)
+
+[node name="@Node3D@162678" parent="Cones" unique_id=334052456 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 386.74347, 0, -11.517461)
+
+[node name="@Node3D@162679" parent="Cones" unique_id=844739887 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 407.43994, 0, -26.60578)
+
+[node name="@Node3D@162680" parent="Cones" unique_id=937367808 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 402.1811, 0, -7.3095455)
+
+[node name="@Node3D@162681" parent="Cones" unique_id=1848441178 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 423.36044, 0, -20.506298)
+
+[node name="@Node3D@162682" parent="Cones" unique_id=1044020451 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 416.10336, 0, -1.8693819)
+
+[node name="@Node3D@162683" parent="Cones" unique_id=540094573 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 438.2696, 0, -14.699833)
+
+[node name="@Node3D@162684" parent="Cones" unique_id=1547586675 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 431.01257, 0, 3.937117)
+
+[node name="@Node3D@162685" parent="Cones" unique_id=141478610 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 456.18433, 0, -6.806808)
+
+[node name="@Node3D@162686" parent="Cones" unique_id=592777999 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 442.71674, 0, 7.9791436)
+
+[node name="@Node3D@162687" parent="Cones" unique_id=286807041 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 468.01285, 0, 3.967698)
+
+[node name="@Node3D@162688" parent="Cones" unique_id=1932288467 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 454.54514, 0, 18.753544)
+
+[node name="@Node3D@162689" parent="Cones" unique_id=1872560222 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 479.84122, 0, 14.742071)
+
+[node name="@Node3D@162690" parent="Cones" unique_id=640840883 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 466.37375, 0, 29.528105)
+
+[node name="@Node3D@162691" parent="Cones" unique_id=138161133 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 486.35965, 0, 36.6551)
+
+[node name="@Node3D@162692" parent="Cones" unique_id=1679344895 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 466.36044, 0, 36.83193)
+
+[node name="@Node3D@162693" parent="Cones" unique_id=85740763 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 486.50055, 0, 52.65458)
+
+[node name="@Node3D@162694" parent="Cones" unique_id=298431065 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 466.50134, 0, 52.831406)
+
+[node name="@Node3D@162695" parent="Cones" unique_id=1547921665 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 485.05383, 0, 72.46496)
+
+[node name="@Node3D@162696" parent="Cones" unique_id=1672966360 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 466.6217, 0, 64.70246)
+
+[node name="@Node3D@162697" parent="Cones" unique_id=725426109 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 478.84122, 0, 87.20959)
+
+[node name="@Node3D@162698" parent="Cones" unique_id=713676639 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 460.4091, 0, 79.44709)
+
+[node name="@Node3D@162699" parent="Cones" unique_id=1956516170 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 472.62753, 0, 101.95681)
+
+[node name="@Node3D@162700" parent="Cones" unique_id=1986366070 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 454.1976, 0, 94.189125)
+
+[node name="@Node3D@162701" parent="Cones" unique_id=39238241 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 471.4184, 0, 109.5552)
+
+[node name="@Node3D@162702" parent="Cones" unique_id=273168409 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 452.60266, 0, 116.3352)
+
+[node name="@Node3D@162703" parent="Cones" unique_id=1842436421 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 476.84097, 0, 124.60858)
+
+[node name="@Node3D@162704" parent="Cones" unique_id=2063680162 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 458.02524, 0, 131.38858)
+
+[node name="@Node3D@162705" parent="Cones" unique_id=1893544298 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 481.4292, 0, 133.63843)
+
+[node name="@Node3D@162706" parent="Cones" unique_id=455223580 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 468.867, 0, 149.20093)
+
+[node name="@Node3D@162707" parent="Cones" unique_id=768559771 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 493.87903, 0, 143.68703)
+
+[node name="@Node3D@162708" parent="Cones" unique_id=805372791 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 481.318, 0, 159.25044)
+
+[node name="@Node3D@162709" parent="Cones" unique_id=241198902 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 506.33005, 0, 153.73651)
+
+[node name="@Node3D@162710" parent="Cones" unique_id=1641180670 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 493.76785, 0, 169.29901)
+
+[node name="@Node3D@162711" parent="Cones" unique_id=800569804 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 518.7814, 0, 163.7863)
+
+[node name="@Node3D@162712" parent="Cones" unique_id=1989839241 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 506.21732, 0, 179.3473)
+
+[node name="@Node3D@162713" parent="Cones" unique_id=1656341324 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 530.70087, 0, 169.97775)
+
+[node name="@Node3D@162714" parent="Cones" unique_id=1154074009 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 522.35895, 0, 188.155)
+
+[node name="@Node3D@162715" parent="Cones" unique_id=1660169204 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 545.2442, 0, 176.65398)
+
+[node name="@Node3D@162716" parent="Cones" unique_id=2003116028 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 536.89764, 0, 194.82912)
+
+[node name="@Node3D@162717" parent="Cones" unique_id=493693028 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 559.78534, 0, 183.32924)
+
+[node name="@Node3D@162718" parent="Cones" unique_id=2100613698 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 551.4388, 0, 201.50438)
+
+[node name="@Node3D@162719" parent="Cones" unique_id=139603344 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 574.3264, 0, 190.00446)
+
+[node name="@Node3D@162720" parent="Cones" unique_id=1401422599 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 565.97986, 0, 208.1796)
+
+[node name="@Node3D@162721" parent="Cones" unique_id=1816735824 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 589.21924, 0, 200.80565)
+
+[node name="@Node3D@162722" parent="Cones" unique_id=795104165 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 576.67224, 0, 216.38039)
+
+[node name="@Node3D@162723" parent="Cones" unique_id=1879167242 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 601.6797, 0, 210.84169)
+
+[node name="@Node3D@162724" parent="Cones" unique_id=1256005216 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 589.1327, 0, 226.41643)
+
+[node name="@Node3D@162725" parent="Cones" unique_id=335268994 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 614.1371, 0, 220.87534)
+
+[node name="@Node3D@162726" parent="Cones" unique_id=2080928794 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 601.59607, 0, 236.4549)
+
+[node name="@Node3D@162727" parent="Cones" unique_id=1441483390 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 628.82684, 0, 236.13812)
+
+[node name="@Node3D@162728" parent="Cones" unique_id=1854828706 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 609.90436, 0, 242.61432)
+
+[node name="@Node3D@162729" parent="Cones" unique_id=1974490994 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 634.01337, 0, 251.2674)
+
+[node name="@Node3D@162730" parent="Cones" unique_id=965489377 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 615.09503, 0, 257.75543)
+
+[node name="@Node3D@162731" parent="Cones" unique_id=2041057836 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 636.98224, 0, 271.567)
+
+[node name="@Node3D@162732" parent="Cones" unique_id=59322441 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 617.2779, 0, 268.14066)
+
+[node name="@Node3D@162733" parent="Cones" unique_id=33272404 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 634.24084, 0, 287.33038)
+
+[node name="@Node3D@162734" parent="Cones" unique_id=1536566043 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 614.5365, 0, 283.90405)
+
+[node name="@Node3D@162735" parent="Cones" unique_id=1909330365 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 631.4994, 0, 303.09372)
+
+[node name="@Node3D@162736" parent="Cones" unique_id=1284114425 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 611.79504, 0, 299.6674)
+
+[node name="@Node3D@162737" parent="Cones" unique_id=1797187237 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 621.56104, 0, 320.74515)
+
+[node name="@Node3D@162738" parent="Cones" unique_id=1176412229 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 605.41797, 0, 308.93826)
+
+[node name="@Node3D@162739" parent="Cones" unique_id=1414398855 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 612.11475, 0, 333.65875)
+
+[node name="@Node3D@162740" parent="Cones" unique_id=1272952870 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 595.9717, 0, 321.85187)
+
+[node name="@Node3D@162741" parent="Cones" unique_id=1818667927 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 602.6656, 0, 346.57642)
+
+[node name="@Node3D@162742" parent="Cones" unique_id=1770477679 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 586.5284, 0, 334.7616)
+
+[node name="@Node3D@162743" parent="Cones" unique_id=531143324 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 593.22296, 0, 359.48502)
+
+[node name="@Node3D@162744" parent="Cones" unique_id=634100973 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 577.0778, 0, 347.681)
+
+[node name="@Node3D@162745" parent="Cones" unique_id=240231353 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 579.77783, 0, 372.2733)
+
+[node name="@Node3D@162746" parent="Cones" unique_id=830047617 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 567.35095, 0, 356.6025)
+
+[node name="@Node3D@162747" parent="Cones" unique_id=1703925876 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 567.23975, 0, 382.21246)
+
+[node name="@Node3D@162748" parent="Cones" unique_id=2064974863 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 554.81287, 0, 366.5417)
+
+[node name="@Node3D@162749" parent="Cones" unique_id=738945021 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 554.70154, 0, 392.15173)
+
+[node name="@Node3D@162750" parent="Cones" unique_id=873482640 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 542.27466, 0, 376.48096)
+
+[node name="@Node3D@162751" parent="Cones" unique_id=771683280 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 537.5386, 0, 402.93546)
+
+[node name="@Node3D@162752" parent="Cones" unique_id=740748899 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 533.32715, 0, 383.38388)
+
+[node name="@Node3D@162753" parent="Cones" unique_id=410394705 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 521.899, 0, 406.30502)
+
+[node name="@Node3D@162754" parent="Cones" unique_id=335204701 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 517.6851, 0, 386.754)
+
+[node name="@Node3D@162755" parent="Cones" unique_id=511649643 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 506.25775, 0, 409.67502)
+
+[node name="@Node3D@162756" parent="Cones" unique_id=1953528931 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 502.0451, 0, 390.1237)
+
+[node name="@Node3D@162757" parent="Cones" unique_id=705867913 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 484.94055, 0, 408.13107)
+
+[node name="@Node3D@162758" parent="Cones" unique_id=1216341126 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 492.94092, 0, 389.80093)
+
+[node name="@Node3D@162759" parent="Cones" unique_id=187062321 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 470.27438, 0, 401.72873)
+
+[node name="@Node3D@162760" parent="Cones" unique_id=1265666275 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 478.27988, 0, 383.40085)
+
+[node name="@Node3D@162761" parent="Cones" unique_id=1523964719 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 455.61295, 0, 395.32855)
+
+[node name="@Node3D@162762" parent="Cones" unique_id=479719814 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 463.6133, 0, 376.9984)
+
+[node name="@Node3D@162763" parent="Cones" unique_id=132407268 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 440.94922, 0, 388.9273)
+
+[node name="@Node3D@162764" parent="Cones" unique_id=230431514 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 448.9496, 0, 370.59717)
+
+[node name="@Node3D@162765" parent="Cones" unique_id=1869261940 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 424.4507, 0, 381.09872)
+
+[node name="@Node3D@162766" parent="Cones" unique_id=2137092564 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 436.43314, 0, 365.08554)
+
+[node name="@Node3D@162767" parent="Cones" unique_id=1831936150 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 411.64038, 0, 371.5082)
+
+[node name="@Node3D@162768" parent="Cones" unique_id=743702659 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 423.6267, 0, 355.49796)
+
+[node name="@Node3D@162769" parent="Cones" unique_id=1027913722 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 398.8306, 0, 361.91818)
+
+[node name="@Node3D@162770" parent="Cones" unique_id=1937894166 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 410.81985, 0, 345.91013)
+
+[node name="@Node3D@162771" parent="Cones" unique_id=1403555850 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 386.02374, 0, 352.33023)
+
+[node name="@Node3D@162772" parent="Cones" unique_id=92264733 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 398.01007, 0, 336.31998)
+
+[node name="@Node3D@162773" parent="Cones" unique_id=1095935371 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 373.21375, 0, 342.74)
+
+[node name="@Node3D@162774" parent="Cones" unique_id=1877362603 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 385.203, 0, 326.73193)
+
+[node name="@Node3D@162775" parent="Cones" unique_id=1195498242 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 360.40924, 0, 333.1538)
+
+[node name="@Node3D@162776" parent="Cones" unique_id=1488857650 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 372.39166, 0, 317.14063)
+
+[node name="@Node3D@162777" parent="Cones" unique_id=606199201 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 347.13, 0, 321.38455)
+
+[node name="@Node3D@162778" parent="Cones" unique_id=2014647074 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 361.8015, 0, 307.7924)
+
+[node name="@Node3D@162779" parent="Cones" unique_id=89025286 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 336.25528, 0, 309.64536)
+
+[node name="@Node3D@162780" parent="Cones" unique_id=1414317922 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 350.9296, 0, 296.05624)
+
+[node name="@Node3D@162781" parent="Cones" unique_id=2035400871 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 325.38217, 0, 297.9079)
+
+[node name="@Node3D@162782" parent="Cones" unique_id=611131142 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 340.0565, 0, 284.3188)
+
+[node name="@Node3D@162783" parent="Cones" unique_id=337509764 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 314.5088, 0, 286.17017)
+
+[node name="@Node3D@162784" parent="Cones" unique_id=920091636 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 329.1831, 0, 272.58105)
+
+[node name="@Node3D@162785" parent="Cones" unique_id=1301556526 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 303.63705, 0, 274.43417)
+
+[node name="@Node3D@162786" parent="Cones" unique_id=2097249593 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 318.30856, 0, 260.842)
+
+[node name="@Node3D@162787" parent="Cones" unique_id=2141615676 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 292.7635, 0, 262.69632)
+
+[node name="@Node3D@162788" parent="Cones" unique_id=947466325 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 307.435, 0, 249.10414)
+
+[node name="@Node3D@162789" parent="Cones" unique_id=1940385657 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 282.22482, 0, 249.03117)
+
+[node name="@Node3D@162790" parent="Cones" unique_id=1932633938 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 298.51657, 0, 237.43034)
+
+[node name="@Node3D@162791" parent="Cones" unique_id=1574987003 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 272.9444, 0, 235.99559)
+
+[node name="@Node3D@162792" parent="Cones" unique_id=2109810372 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 289.23798, 0, 224.39738)
+
+[node name="@Node3D@162793" parent="Cones" unique_id=940863077 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 263.6651, 0, 222.96158)
+
+[node name="@Node3D@162794" parent="Cones" unique_id=1425259124 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 279.95868, 0, 211.36337)
+
+[node name="@Node3D@162795" parent="Cones" unique_id=1156514309 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 254.38579, 0, 209.92766)
+
+[node name="@Node3D@162796" parent="Cones" unique_id=296999031 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 270.67938, 0, 198.32945)
+
+[node name="@Node3D@162797" parent="Cones" unique_id=2109953464 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 245.1064, 0, 196.89355)
+
+[node name="@Node3D@162798" parent="Cones" unique_id=723882833 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 261.3996, 0, 185.29477)
+
+[node name="@Node3D@162799" parent="Cones" unique_id=86904488 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235.95021, 0, 183.56578)
+
+[node name="@Node3D@162800" parent="Cones" unique_id=1436861978 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 252.43816, 0, 172.24556)
+
+[node name="@Node3D@162801" parent="Cones" unique_id=2103004930 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 226.89368, 0, 170.37523)
+
+[node name="@Node3D@162802" parent="Cones" unique_id=859855106 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 243.38162, 0, 159.05501)
+
+[node name="@Node3D@162803" parent="Cones" unique_id=1790008085 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 217.83723, 0, 157.18478)
+
+[node name="@Node3D@162804" parent="Cones" unique_id=1259750286 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 234.32518, 0, 145.86456)
+
+[node name="@Node3D@162805" parent="Cones" unique_id=1513887341 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 208.72743, 0, 141.75305)
+
+[node name="@Node3D@162806" parent="Cones" unique_id=1816783436 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 227.13109, 0, 133.92328)
+
+[node name="@Node3D@162807" parent="Cones" unique_id=488244212 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 202.46437, 0, 127.03054)
+
+[node name="@Node3D@162808" parent="Cones" unique_id=1864204857 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 220.86739, 0, 119.19927)
+
+[node name="@Node3D@162809" parent="Cones" unique_id=853570515 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 196.2005, 0, 112.30618)
+
+[node name="@Node3D@162810" parent="Cones" unique_id=1155098328 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 214.6044, 0, 104.476944)
+
+[node name="@Node3D@162811" parent="Cones" unique_id=6252576 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 189.14307, 0, 102.665115)
+
+[node name="@Node3D@162812" parent="Cones" unique_id=1196091816 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 203.33466, 0, 88.5726)
+
+[node name="@Node3D@162813" parent="Cones" unique_id=1821703247 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 177.86871, 0, 91.30981)
+
+[node name="@Node3D@162814" parent="Cones" unique_id=791453366 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 192.06259, 0, 77.2196)
+
+[node name="@Node3D@162815" parent="Cones" unique_id=1553029340 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 166.59578, 0, 79.9559)
+
+[node name="@Node3D@162816" parent="Cones" unique_id=192448787 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180.7889, 0, 65.86493)
+
+[node name="@Node3D@162817" parent="Cones" unique_id=403956699 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.48796, 0, 72.578255)
+
+[node name="@Node3D@162818" parent="Cones" unique_id=889982476 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 165.62257, 0, 55.336166)
+
+[node name="@Node3D@162819" parent="Cones" unique_id=609832449 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 141.694, 0, 64.46946)
+
+[node name="@Node3D@162820" parent="Cones" unique_id=1721774271 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 151.82993, 0, 47.22815)
+
+[node name="@Node3D@162821" parent="Cones" unique_id=997131930 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 127.900986, 0, 56.361237)
+
+[node name="@Node3D@162822" parent="Cones" unique_id=680518202 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 138.03636, 0, 39.11959)
+
+[node name="@Node3D@162823" parent="Cones" unique_id=2091290624 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115.99861, 0, 49.19683)
+
+[node name="@Node3D@162824" parent="Cones" unique_id=1940913192 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 122.28726, 0, 30.211235)
+
+[node name="@Node3D@162825" parent="Cones" unique_id=139810027 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.809845, 0, 44.165462)
+
+[node name="@Node3D@162826" parent="Cones" unique_id=1751025066 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 107.09964, 0, 25.18024)
+
+[node name="@Node3D@162827" parent="Cones" unique_id=1943393459 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.621765, 0, 39.134315)
+
+[node name="@Node3D@162828" parent="Cones" unique_id=1796116466 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91.9111, 0, 20.148947)
+
+[node name="@Node3D@162829" parent="Cones" unique_id=161921880 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.34485, 0, 34.05691)
+
+[node name="@Node3D@162830" parent="Cones" unique_id=192165001 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.82045, 0, 15.134265)
+
+[node name="@Node3D@162831" parent="Cones" unique_id=664040016 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.206394, 0, 28.87632)
+
+[node name="@Node3D@162832" parent="Cones" unique_id=830652117 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.68189, 0, 9.953636)
+
+[node name="@Node3D@162833" parent="Cones" unique_id=1889082811 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.06793, 0, 23.695728)
+
+[node name="@Node3D@162834" parent="Cones" unique_id=606299489 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.54366, 0, 4.7731237)
+
+[node name="@Node3D@162835" parent="Cones" unique_id=433578547 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.92996, 0, 18.5153)
+
+[node name="@Node3D@162836" parent="Cones" unique_id=1530841539 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.405626, 0, -0.40732384)
+
+[node name="@Node3D@162837" parent="Cones" unique_id=1002096573 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.791592, 0, 13.334738)
+
+[node name="@Node3D@162838" parent="Cones" unique_id=79742197 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.267258, 0, -5.5878863)
+
+[node name="@Node3D@162839" parent="Cones" unique_id=1932886748 instance=ExtResource("3_a1nos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3468986, 0, 8.154135)
+
+[node name="@Node3D@162840" parent="Cones" unique_id=638455109 instance=ExtResource("4_xtwde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1286311, 0, -10.7685375)
