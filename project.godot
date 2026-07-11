@@ -23,6 +23,7 @@ GameSettings="*uid://colhx2s830dpq"
 
 player="I think the vehicle is here"
 cones=""
+Checkpoints=""
 
 [input]
 

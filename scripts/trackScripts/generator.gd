@@ -7,7 +7,7 @@ extends Node3D
 @onready var leftMesh : MeshInstance3D = root.get_node("MeshParent/LeftMesh")
 const TRACK_WIDTH := 20.0
 const CONE_SPACING := 16.0
-const SAMPLING_DISTANCE := 5.0
+const SAMPLING_DISTANCE := 4.0
 const WALL_HEIGHT := 2.0
 const HALF_TRACK_WIDTH := TRACK_WIDTH/2 
 
@@ -125,6 +125,9 @@ func generate_right_wall():
 	# Create the Mesh.
 	arr_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
 	rightMesh.mesh = arr_mesh
+	
+	generate_mesh(arr_mesh)
+	
 func generate_left_wall():
 	var vertices = PackedVector3Array()
 	var curve = path.curve
@@ -180,7 +183,20 @@ func generate_left_wall():
 	# Create the Mesh.
 	arr_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
 	leftMesh.mesh = arr_mesh
+	generate_mesh(arr_mesh)
 	
+func generate_mesh(arr_mesh: ArrayMesh):
+	var body = StaticBody3D.new()
+	body.name = "WallCollision"
+	
+	body.collision_layer = 2
+	body.collision_mask = 1
+	
+	var shape = CollisionShape3D.new()
+	shape.shape = arr_mesh.create_trimesh_shape()
+	
+	body.add_child(shape)
+	rightMesh.add_child(body)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
