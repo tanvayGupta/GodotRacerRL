@@ -27,7 +27,9 @@ func accumulated(accu: float) -> void:
 	text = "Time elapsed :\n %.3f s" % time_elapsed
 	
 func _on_lap_completion(meh):
+	var delta_lap = 0.0
 	if time_elapsed == 0.0:
 		last_lap = time_elapsed
-	last_lap = time_elapsed - last_lap
+	delta_lap = time_elapsed - last_lap
+	last_lap = time_elapsed - delta_lap
 	LapTimeLabel.text = "Last Lap: %.2f" %last_lap

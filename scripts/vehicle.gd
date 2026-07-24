@@ -5,7 +5,7 @@ extends VehicleBody3D
 @onready var steer_label = %VSeperator
 
 # --- Tunable parameters ---
-var max_engine_force = 1800.0
+var max_engine_force = 800.0
 var max_steering_angle := 0.5
 var steering_per_unit := 0.1
 var brake_force := 100.0
@@ -24,6 +24,15 @@ var lateral_grip_strength = 25.0
 func _ready():
 	spawn_position = global_position
 	spawn_rotation = rotation
+	
+	for wheel in get_children():
+		if wheel is VehicleWheel3D:
+			wheel.wheel_radius = 0.5
+			wheel.suspension_stiffness = 2.0
+			wheel.suspension_max_force = 8000
+			wheel.suspension_travel = 0.3
+			wheel.damping_compression = 0.5
+			wheel.damping_relaxation = 0.5
 		
 		
 func _physics_process(delta):
@@ -34,6 +43,10 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("reset") or abs(global_position.x) > (960) or abs(global_position.z) > 540:
 		reset_car()
 		get_tree().reload_current_scene()
+	
+	if Input.is_action_just_pressed("flip"):
+		flip_car()	
+		
 	
 	if Input.is_action_pressed("accelerate"):
 		#print(steer)
@@ -96,3 +109,6 @@ func reset_car():
 
 	linear_velocity = Vector3.ZERO
 	angular_velocity = Vector3.ZERO
+
+func flip_car():
+	rotation = spawn_rotation

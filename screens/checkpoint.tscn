@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bln8inqoob2ww" path="res://scripts/checkpoint.gd" id="1_87x1m"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pbk3a"]
-size = Vector3(20, 3, 0.5)
+size = Vector3(25, 30, 0.5)
 
 [node name="Checkpoint" type="Area3D" unique_id=1468200839]
 script = ExtResource("1_87x1m")

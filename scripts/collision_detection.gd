@@ -14,7 +14,7 @@ func _body_process(delta: float) -> void:
 	pass
 	
 func _on_body_entered(body):
-	print("collided")
+	#print("collided")
 	if triggered:
 		return
 	if body.is_in_group("player"):

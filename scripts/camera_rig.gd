@@ -1,20 +1,29 @@
 extends Node3D
 
-@export var target: VehicleBody3D
-@export var follow_speed := 5.0
-@export var look_speed := 5.0
+@export var vehicle: VehicleBody3D
+
+@export var follow_distance := 8.0
+@export var follow_height := 3.0
+@export var follow_speed := 6.0
+
+func _ready():
+	var desired = vehicle.global_position
+	desired -= vehicle.global_basis.z * follow_distance
+	desired += Vector3.UP * follow_height
+	
+	global_position = desired
+	look_at(vehicle.global_position + Vector3.UP, Vector3.UP)
+	
 
 func _physics_process(delta):
-	if target == null:
-		print("NO TARGET")
-		return
 
-	# --- FOLLOW POSITION ---
-	var target_pos = target.global_transform.origin
-	global_transform.origin = global_transform.origin.lerp(target_pos, follow_speed * delta)
+	var desired = vehicle.global_position
+	desired -= vehicle.global_basis.z * follow_distance
+	desired += Vector3.UP * follow_height
 
-	# --- LOOK DIRECTION ---
-	var forward = target.global_transform.basis.z
-	var look_at_pos = target_pos + forward * 5.0
+	global_position = global_position.lerp(
+		desired,
+		follow_speed * delta
+	)
 
-	look_at(look_at_pos, Vector3.UP)
+	look_at(vehicle.global_position + Vector3.UP, Vector3.UP)

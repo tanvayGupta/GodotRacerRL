@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dq80lua41y4qd" path="res://assets/skies/the_sky_is_on_fire_4k.exr" id="1_g7iek"]
 [ext_resource type="PackedScene" uid="uid://bxiqylmq2yxls" path="res://screens/vehicle.tscn" id="2_6nlyh"]
 [ext_resource type="PackedScene" uid="uid://dx3nm4384n4n8" path="res://screens/spa_path.tscn" id="2_gfkhe"]
+[ext_resource type="Script" uid="uid://cjexweuq4nprt" path="res://scripts/camera_rig.gd" id="3_g7iek"]
 [ext_resource type="Script" uid="uid://beqqt3ifmwsuc" path="res://scripts/score_system.gd" id="4_5kag3"]
 [ext_resource type="Script" uid="uid://b3j2d2mth84ab" path="res://scripts/HUDlabels/time_label.gd" id="6_5kag3"]
 [ext_resource type="Script" uid="uid://1jb4fejsrdev" path="res://scripts/HUDlabels/penalty_label.gd" id="7_g7iek"]
@@ -23,6 +24,12 @@ ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_sky_contribution = 0.05
 ambient_light_energy = 0.0
 tonemap_exposure = 0.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g7iek"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4v2gu"]
+material = SubResource("StandardMaterial3D_g7iek")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gfkhe"]
 bg_color = Color(0.16470589, 0.16470589, 0.16470589, 0.8)
@@ -65,14 +72,21 @@ directional_shadow_max_distance = 3000.0
 
 [node name="Ground" parent="." unique_id=66264329 instance=ExtResource("2_gfkhe")]
 
-[node name="VehicleBody3D" parent="." unique_id=1937499188 instance=ExtResource("2_6nlyh")]
-transform = Transform3D(0.62409776, 0, -0.7813462, 0, 1, 0, 0.7813462, 0, 0.62409776, -713.28937, 2.126267, 301.02563)
+[node name="CameraRig" type="Node3D" parent="." unique_id=385110458 node_paths=PackedStringArray("vehicle")]
+script = ExtResource("3_g7iek")
+vehicle = NodePath("../VehicleBody3D")
 
-[node name="Camera3D" type="Camera3D" parent="VehicleBody3D" unique_id=1412517217]
-transform = Transform3D(-1, 3.908059e-08, -1.4585073e-07, 0, 0.96592575, 0.25881904, 1.509958e-07, 0.25881904, -0.96592575, 0, 3, -10)
+[node name="Camera3D" type="Camera3D" parent="CameraRig" unique_id=1412517217]
 keep_aspect = 0
 v_offset = 1.5
-fov = 82.1
+fov = 94.6
+far = 229.14
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CameraRig" unique_id=1754870264]
+mesh = SubResource("BoxMesh_4v2gu")
+
+[node name="VehicleBody3D" parent="." unique_id=1937499188 instance=ExtResource("2_6nlyh")]
+transform = Transform3D(0.62409776, 0, -0.7813462, 0, 1, 0, 0.7813462, 0, 0.62409776, -686.84894, 8.24345, 230.62357)
 
 [node name="RaceManager" type="Node3D" parent="." unique_id=1791733500]
 unique_name_in_owner = true
@@ -174,6 +188,7 @@ visible = false
 mesh = SubResource("BoxMesh_gfkhe")
 
 [node name="Checkpoints" type="Node3D" parent="." unique_id=414860064]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29, 0, -75)
 
 [node name="Checkpoint1" parent="Checkpoints" unique_id=680606683 groups=["Checkpoints"] instance=ExtResource("7_gfkhe")]
 transform = Transform3D(0.69695234, 0, -0.7171174, 0, 1, 0, 0.7171174, 0, 0.69695234, -723.64526, 0.5711335, 308.85373)
