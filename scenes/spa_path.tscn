@@ -44,13 +44,11 @@ script = ExtResource("3_vh0yy")
 [node name="MeshParent" type="Node3D" parent="." unique_id=816136409]
 
 [node name="RightMesh" type="MeshInstance3D" parent="MeshParent" unique_id=216621774]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 0, 77)
 
 [node name="LeftMesh" type="MeshInstance3D" parent="MeshParent" unique_id=1586108166]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 0, 75)
 
 [node name="Checkpoints" type="Node3D" parent="." unique_id=1572862122]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.958, 0, -74.02296)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.503899, 0, -75.273994)
 
 [node name="Checkpoint1" parent="Checkpoints" unique_id=1468200839 groups=["Checkpoints"] instance=ExtResource("4_xph8h")]
 transform = Transform3D(0.69695234, 0, -0.7171174, 0, 1, 0, 0.7171174, 0, 0.69695234, -723.64526, 0.5711335, 308.85373)

@@ -13,6 +13,7 @@ var WALL_HEIGHT := 2.0
 var HALF_TRACK_WIDTH := 10.0
 var WALL_THICKNESS := 2.0
 
+
 const SAMPLING_DISTANCE := 4.0
 
 const MAP_CONFIGS := {
@@ -27,6 +28,12 @@ const MAP_CONFIGS := {
 		"cone_spacing": 10.0,
 		"wall_height": 3.0,
 		"wall_thickness": 1.5,
+	},
+	GameSettings.MapName.MINI: {
+		"track_width": 8.0,
+		"cone_spacing": 15.0,
+		"wall_height": 3.0,
+		"wall_thickness": 0.5,
 	},
 	"monza": {
 		"track_width": 24.0,
@@ -87,11 +94,13 @@ func generate_cones():
 		left_cone.position = left_pos
 		cones_parent.add_child(left_cone)
 		left_cone.owner = root
+		#left_cone.add_to_group("cones")
 
 		var right_cone = blue_cone_scene.instantiate()
 		right_cone.position = right_pos
 		cones_parent.add_child(right_cone)
 		right_cone.owner = root
+		#right_cone.add_to_group("cones")
 
 		distance += CONE_SPACING
 

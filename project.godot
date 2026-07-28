@@ -18,12 +18,13 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameSettings="*uid://colhx2s830dpq"
+GameEvents="*uid://ce4x4plw1ou2u"
 
 [global_group]
 
 player="I think the vehicle is here"
 cones=""
-Checkpoints=""
+CheckpointsSpa=""
 
 [input]
 

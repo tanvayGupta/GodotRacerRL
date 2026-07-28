@@ -4,17 +4,21 @@ extends Node3D
 @onready var TimeLabel = %TimeLabel
 @onready var PenaltyLabel = %PenaltyLabel
 @onready var LapTimeLabel = %LapTimeLabel
+@onready var SpeedLabel = %SpeedLabel
+@onready var AngleLabel = %AngleLabel
 @onready var track_container: Node3D = %TrackContainer
 
-var score = 0.0
+#var score = 0.0
 var time_elapsed := 0.0
 var accumulator := 0.0
+var secondAccu := 0.0
 var last_lap := 0.0
 var current_lap: int = 1
 
 const MAP_SCENES := {
 	GameSettings.MapName.SPA: preload("res://scenes/spa_path.tscn"),
 	GameSettings.MapName.INK: preload("res://scenes/agent_path.tscn"),
+	GameSettings.MapName.MINI: preload("res://scenes/mini_path.tscn")
 }
 
 const VEHICLE_SCENE := preload("res://scenes/vehicle.tscn")
@@ -23,13 +27,13 @@ const VEHICLE_SCENE := preload("res://scenes/vehicle.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
-	for cone in get_tree().get_nodes_in_group("cones"):
-		cone.cone_hit.connect(_on_cone_hit)
+	_label_initialize()
+	GameEvents.cone_hit.connect(_on_cone_hit)
 		
 	var track_instance = _load_track()
 	_connect_track_signals(track_instance)
 	_spawn_vehicle(track_instance)
+	
 	
 	
 func _load_track() -> Node3D:
@@ -68,13 +72,13 @@ func _on_lap_completion(_meh):
 	LapLabel.text = "Lap: %d" %current_lap
 	
 func _on_checkpoint_violation(amount) -> void:
-	score += amount
-	PenaltyLabel.text = "Checkpoint Penalty >:C\n %.1f" %score
+	GameSettings.penalty += amount
+	PenaltyLabel.text = "Checkpoint Penalty >:C\n %.1f" %GameSettings.penalty
 
 func _on_cone_hit(amount):
 	print("Recieved")
-	score += amount
-	PenaltyLabel.text = "Penalty >:D\n %.1f" %score
+	GameSettings.penalty += amount
+	PenaltyLabel.text = "Penalty >:D\n %.1f" %GameSettings.penalty
 	
 func _label_initialize() -> void:
 	PenaltyLabel.text = "Awesome\n Driving"
@@ -86,9 +90,18 @@ func _process(delta: float) -> void:
 		time_elapsed = 0
 		
 	accumulator += delta
+	secondAccu += delta
 	if accumulator > 0.08:
 		accumulated(accumulator)
 		accumulator = 0.0
+	if secondAccu > 0.5:
+		secondCounter(secondAccu)
+		secondAccu = 0.0
+		
+func secondCounter(_accu: float) -> void:
+	SpeedLabel.text = "Speed :\n %.1f kmph" % GameSettings.speed
+	AngleLabel.text = "Steer :\n %.2f rads" % GameSettings.angle
+	
 	
 func accumulated(accu: float) -> void:
 	time_elapsed += accu

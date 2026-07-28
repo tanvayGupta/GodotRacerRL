@@ -1,5 +1,6 @@
 extends Area3D
 
+
 @export var score_penalty := 10
 var triggered = false
 signal cone_hit
@@ -19,9 +20,14 @@ func _on_body_entered(body):
 		return
 	if body.is_in_group("player"):
 		triggered = true
-		print("emitted")
-		cone_hit.emit(10)
+		#print("emitted")
+		cone_hit.emit(score_penalty)
+		GameEvents.cone_hit.emit(score_penalty)
+		#GameSettings.penalty += 10
+		
 	elif body.is_in_group("cones"):
 		triggered = true
 		print("Emitted by cone")
-		cone_hit.emit(5)
+		#cone_hit.emit(5)
+		GameEvents.cone_hit.emit(score_penalty/2)
+		#GameSettings.penalty += score_penalty/2     

@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://cgxjn184l3str"]
+
+[ext_resource type="Texture2D" uid="uid://fx117oeotbq1" path="res://assets/tracksAndBGs/random_path.svg" id="1_o0jiq"]
+[ext_resource type="Curve3D" uid="uid://32av7m00pxdl" path="res://utils/MINIPATH.tres" id="1_qetfm"]
+[ext_resource type="Script" uid="uid://inh6oltxkvju" path="res://scripts/trackScripts/generato_generic.gd" id="2_anjhs"]
+[ext_resource type="Script" uid="uid://bxmpwqyvpks6u" path="res://scripts/trackScripts/checkpoint_manager.gd" id="3_qetfm"]
+[ext_resource type="PackedScene" uid="uid://cpgj3e8cdpk7w" path="res://scenes/checkpoint.tscn" id="5_qetfm"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3qad8"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_3qad8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q70cn"]
+albedo_texture = ExtResource("1_o0jiq")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_oxdpk"]
+material = SubResource("StandardMaterial3D_q70cn")
+size = Vector2(300, 300)
+
+[node name="Node3D" type="Node3D" unique_id=175307478]
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=1697174246]
+collision_layer = 15
+collision_mask = 15
+physics_material_override = SubResource("PhysicsMaterial_3qad8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=938070014]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+shape = SubResource("WorldBoundaryShape3D_3qad8")
+
+[node name="TrackPath" type="Path3D" parent="Ground" unique_id=735890732]
+curve = ExtResource("1_qetfm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=1399171043]
+mesh = SubResource("PlaneMesh_oxdpk")
+
+[node name="Generator" type="Node3D" parent="." unique_id=493482794]
+script = ExtResource("2_anjhs")
+
+[node name="MeshParent" type="Node3D" parent="." unique_id=1026642044]
+
+[node name="LeftMesh" type="MeshInstance3D" parent="MeshParent" unique_id=193790851]
+
+[node name="RightMesh" type="MeshInstance3D" parent="MeshParent" unique_id=564078659]
+
+[node name="Cones" type="Node3D" parent="." unique_id=2059148794]
+
+[node name="SpawnPoint" type="Marker3D" parent="." unique_id=1890140610]
+transform = Transform3D(0.4605099, 0, 0.8876546, 0, 1, 0, -0.8876546, 0, 0.4605099, 0, 0, 0)
+
+[node name="CheckpointManager" type="Node3D" parent="." unique_id=129617790]
+script = ExtResource("3_qetfm")
+
+[node name="Checkpoints" type="Node3D" parent="." unique_id=303493989]
+
+[node name="Checkpoint1" parent="Checkpoints" unique_id=1468200839 groups=["Checkpoints"] instance=ExtResource("5_qetfm")]
+transform = Transform3D(-0.6122863, 0, 0.7906362, 0, 1, 0, -0.7906362, 0, -0.6122863, 61.54451, 0, 10.992035)
+checkpoint_id = 1
+
+[node name="Checkpoint2" parent="Checkpoints" unique_id=1785074579 groups=["Checkpoints"] instance=ExtResource("5_qetfm")]
+transform = Transform3D(-0.5017372, 0, -0.8650201, 0, 1, 0, 0.8650201, 0, -0.5017372, 81.48382, 0, 87.129326)
+checkpoint_id = 2
+
+[node name="Checkpoint3" parent="Checkpoints" unique_id=1956918785 groups=["Checkpoints"] instance=ExtResource("5_qetfm")]
+transform = Transform3D(-0.8687007, 0, 0.4953374, 0, 1, 0, -0.4953374, 0, -0.8687007, 44.1692, 0, 33.097122)
+checkpoint_id = 3
+
+[node name="Checkpoint4" parent="Checkpoints" unique_id=2044617501 groups=["Checkpoints"] instance=ExtResource("5_qetfm")]
+transform = Transform3D(-0.7685851, 0, 0.6397476, 0, 1, 0, -0.6397476, 0, -0.7685851, -93.981995, 0, -12.387484)
+checkpoint_id = 4
+
+[node name="Checkpoint5" parent="Checkpoints" unique_id=663605833 groups=["Checkpoints"] instance=ExtResource("5_qetfm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -129.3716, 0, -55.654125)
+checkpoint_id = 5
+
+[node name="Checkpoint6" parent="Checkpoints" unique_id=547382749 groups=["Checkpoints"] instance=ExtResource("5_qetfm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98.59638, 0, -65.33821)
+checkpoint_id = 6
+
+[node name="Checkpoint7" parent="Checkpoints" unique_id=1198448390 groups=["Checkpoints"] instance=ExtResource("5_qetfm")]
+transform = Transform3D(0.5716161, 0, 0.8205212, 0, 1, 0, -0.8205212, 0, 0.5716161, 39.186226, 0, -10.751105)
+checkpoint_id = 7
+
+[node name="Checkpoint8" parent="Checkpoints" unique_id=2005927563 groups=["Checkpoints"] instance=ExtResource("5_qetfm")]
+transform = Transform3D(0.9781149, 0, 0.20806536, 0, 1, 0, -0.20806536, 0, 0.9781149, -70.32408, 0, -34.42771)
+checkpoint_id = 8
+
+[node name="Checkpoint9" parent="Checkpoints" unique_id=1042010962 groups=["Checkpoints"] instance=ExtResource("5_qetfm")]
+transform = Transform3D(0.4067047, 0, 0.9135597, 0, 1, 0, -0.9135597, 0, 0.4067047, -13.579224, 0, -3.5463772)
+checkpoint_id = 9

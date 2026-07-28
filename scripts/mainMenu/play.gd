@@ -5,9 +5,9 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	map_dropdown.clear()
-	map_dropdown.add_item("Spa", GameSettings.MapName.SPA)
-	map_dropdown.add_item("Ink", GameSettings.MapName.INK)
+	#map_dropdown.clear()
+	#map_dropdown.add_item("Spa", GameSettings.MapName.SPA)
+	#map_dropdown.add_item("Ink", GameSettings.MapName.INK)
 	map_dropdown.item_selected.connect(_on_map_selected)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

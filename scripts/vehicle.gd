@@ -1,9 +1,5 @@
 extends VehicleBody3D
 
-
-#@onready var speed_label = %SpeedLabel
-#@onready var steer_label = %VSeperator
-
 const MAP_SCENES := {
 	GameSettings.MapName.SPA: "res://scenes/tracks/spa_track.tscn",
 	GameSettings.MapName.INK: "res://scenes/tracks/ink_track.tscn",
@@ -35,6 +31,7 @@ func _physics_process(delta):
 #	 or abs(global_position.x) > (960) or abs(global_position.z) > 540
 	if Input.is_action_just_pressed("reset"):
 		reset_car()
+		GameSettings.penalty = 0
 		get_tree().reload_current_scene()
 	
 	if Input.is_action_pressed("accelerate"):
@@ -63,8 +60,8 @@ func _physics_process(delta):
 	if secondCounter > 0.5:
 		secondCounter = 0.0
 		speed = linear_velocity.length() * 5
-		#speed_label.text = "Speed :\n %.1f kmph" % speed
-		#steer_label.text = "Steer :\n %.2f rads" % steer
+		GameSettings.speed = speed
+		GameSettings.angle = steer
 		
 	
 	engine_force = engine

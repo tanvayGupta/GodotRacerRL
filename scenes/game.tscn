@@ -111,6 +111,7 @@ layout_mode = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(30, 20)
 layout_mode = 2
+text = "Huh, found this?"
 label_settings = SubResource("LabelSettings_g7iek")
 vertical_alignment = 1
 
