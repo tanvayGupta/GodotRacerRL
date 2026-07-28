@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c7m76wpbq6upd"]
 
-[ext_resource type="Script" uid="uid://gbtdtr48svex" path="res://scripts/cone_collision.gd" id="1_idoop"]
-[ext_resource type="Script" uid="uid://ponyx7re7rrk" path="res://scripts/collision_detection.gd" id="2_2rx1m"]
+[ext_resource type="Script" uid="uid://gbtdtr48svex" path="res://scripts/cone_collision.gd" id="1_pho7s"]
+[ext_resource type="Script" uid="uid://ponyx7re7rrk" path="res://scripts/collision_detection.gd" id="2_xd4d7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wt4rp"]
 albedo_color = Color(0, 0, 1, 1)
@@ -34,7 +34,7 @@ height = 1.0
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=124400760]
 collision_layer = 2
 collision_mask = 3
-script = ExtResource("1_idoop")
+script = ExtResource("1_pho7s")
 
 [node name="MainCone" type="MeshInstance3D" parent="RigidBody3D" unique_id=936094387]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9829514, 0)
@@ -55,7 +55,7 @@ shape = SubResource("CylinderShape3D_1xamk")
 [node name="Area3D" type="Area3D" parent="RigidBody3D" unique_id=89491513 groups=["cones"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6391785, 0.07152784, 0)
 collision_layer = 2
-script = ExtResource("2_2rx1m")
+script = ExtResource("2_xd4d7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/Area3D" unique_id=2035271692]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -1.6357658, 0.53, 0)

@@ -6,8 +6,6 @@
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bgm3u"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_bgm3u"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_srr6i"]
 size = Vector3(1.2, 1, 5)
 
@@ -22,7 +20,6 @@ inertia = Vector3(0, 30, 0)
 script = ExtResource("1_bgm3u")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=734112771 groups=["player"]]
-mesh = SubResource("BoxMesh_bgm3u")
 
 [node name="Node3D" type="Node3D" parent="MeshInstance3D" unique_id=838129423]
 
@@ -70,3 +67,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.60589623, 0.39369023, -2.4
 light_color = Color(1, 0, 0, 1)
 light_energy = 3.0
 script = ExtResource("3_blnh5")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=257793649]
+transform = Transform3D(-1, 2.5121855e-08, -8.37355e-08, 0, 0.9578225, 0.28736052, 8.742278e-08, 0.28736052, -0.9578225, 0, 3.5, -5)
+fov = 91.7

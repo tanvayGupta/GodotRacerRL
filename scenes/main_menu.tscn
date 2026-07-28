@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bwigw5nrhdcvj"]
 
-[ext_resource type="Script" uid="uid://5jqa0mhd4yyu" path="res://scripts/mainMenu/name.gd" id="1_ocono"]
-[ext_resource type="FontFile" uid="uid://bodyhvotyaqlh" path="res://assets/fonts/Orbitron/static/Orbitron-Bold.ttf" id="1_p3cyw"]
-[ext_resource type="Script" uid="uid://n1fpvditk8t5" path="res://scripts/mainMenu/play.gd" id="1_t3bh0"]
+[ext_resource type="Script" uid="uid://n1fpvditk8t5" path="res://scripts/mainMenu/play.gd" id="1_bqqt6"]
+[ext_resource type="FontFile" uid="uid://bodyhvotyaqlh" path="res://assets/fonts/Orbitron/static/Orbitron-Bold.ttf" id="2_wu84c"]
+[ext_resource type="Script" uid="uid://5jqa0mhd4yyu" path="res://scripts/mainMenu/name.gd" id="3_8ln24"]
 
 [sub_resource type="Gradient" id="Gradient_csm0v"]
 colors = PackedColorArray(0.6406102, 0.15963557, 0.8529169, 1, 5.1018596e-06, 0.74822634, 0.7541919, 1)
@@ -11,7 +11,7 @@ colors = PackedColorArray(0.6406102, 0.15963557, 0.8529169, 1, 5.1018596e-06, 0.
 gradient = SubResource("Gradient_csm0v")
 
 [sub_resource type="LabelSettings" id="LabelSettings_odldw"]
-font = ExtResource("1_p3cyw")
+font = ExtResource("2_wu84c")
 font_size = 72
 outline_size = 6
 shadow_size = 5
@@ -25,7 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_t3bh0")
+script = ExtResource("1_bqqt6")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1011551840]
 layout_mode = 1
@@ -45,7 +45,7 @@ offset_right = 549.0
 offset_bottom = 205.0
 text = "Racer RL"
 label_settings = SubResource("LabelSettings_odldw")
-script = ExtResource("1_ocono")
+script = ExtResource("3_8ln24")
 
 [node name="PlayButton" type="Button" parent="." unique_id=2077277592]
 custom_minimum_size = Vector2(100, 40)
@@ -70,7 +70,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_top = -137.0
+offset_left = -327.0
+offset_top = -305.0
+offset_right = -185.0
+offset_bottom = -168.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -85,6 +88,37 @@ layout_mode = 2
 [node name="Label2" type="Label" parent="HBoxContainer" unique_id=372751105]
 layout_mode = 2
 text = "Walls"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=1005906570]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 154.0
+offset_top = -298.0
+offset_right = 272.0
+offset_bottom = -161.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="map" type="Label" parent="HBoxContainer2" unique_id=924551831]
+layout_mode = 2
+text = "Map ->
+"
+vertical_alignment = 2
+
+[node name="MapDropdown" type="OptionButton" parent="HBoxContainer2" unique_id=596848595]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+allow_reselect = true
+item_count = 2
+popup/item_0/text = "Ink"
+popup/item_0/id = 0
+popup/item_1/text = "Spa"
+popup/item_1/id = 1
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/ConesWalls" to="." method="_on_cones_walls_pressed"]

@@ -1,7 +1,7 @@
 extends Node3D
 
 @onready var root = get_parent()
-@onready var path: Path3D = root.get_node("SpaPath")
+@onready var path: Path3D = root.get_node("Path")
 @onready var cones_parent: Node3D = root.get_node("Cones")
 @onready var rightMesh : MeshInstance3D = root.get_node("MeshParent/RightMesh")
 @onready var leftMesh : MeshInstance3D = root.get_node("MeshParent/LeftMesh")
@@ -34,8 +34,8 @@ func _ready() -> void:
 			generate_left_wall()
 
 func generate_cones():
-	var yellow_cone_scene = load("res://screens/yellow_cone.tscn")
-	var blue_cone_scene = load("res://screens/blue_cone.tscn")
+	var yellow_cone_scene = load("res://scenes/yellow_cone.tscn")
+	var blue_cone_scene = load("res://scenes/blue_cone.tscn")
 
 	var curve = path.curve
 	var length = curve.get_baked_length()

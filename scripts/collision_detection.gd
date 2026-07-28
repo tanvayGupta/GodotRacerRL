@@ -10,11 +10,11 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _body_process(delta: float) -> void:
+func _body_process(_delta: float) -> void:
 	pass
 	
 func _on_body_entered(body):
-	print("collided")
+	#print("collided")
 	if triggered:
 		return
 	if body.is_in_group("player"):

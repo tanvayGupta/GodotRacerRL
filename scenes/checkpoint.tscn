@@ -5,6 +5,13 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_pbk3a"]
 size = Vector3(20, 3, 0.5)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yyywg"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yyywg"]
+material = SubResource("StandardMaterial3D_yyywg")
+size = Vector3(20, 1, 1)
+
 [node name="Checkpoint" type="Area3D" unique_id=1468200839]
 script = ExtResource("1_87x1m")
 
@@ -12,3 +19,4 @@ script = ExtResource("1_87x1m")
 shape = SubResource("BoxShape3D_pbk3a")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1551312725]
+mesh = SubResource("BoxMesh_yyywg")

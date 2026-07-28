@@ -1,0 +1,148 @@
+[gd_scene format=3 uid="uid://cuxq8pu4q273h"]
+
+[ext_resource type="Texture2D" uid="uid://dq80lua41y4qd" path="res://assets/skies/the_sky_is_on_fire_4k.exr" id="1_g7iek"]
+[ext_resource type="Script" uid="uid://beqqt3ifmwsuc" path="res://scripts/score_system.gd" id="4_5kag3"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3ciuf"]
+panorama = ExtResource("1_g7iek")
+
+[sub_resource type="Sky" id="Sky_6nlyh"]
+sky_material = SubResource("PanoramaSkyMaterial_3ciuf")
+radiance_size = 2
+
+[sub_resource type="Environment" id="Environment_3ciuf"]
+background_mode = 2
+sky = SubResource("Sky_6nlyh")
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_sky_contribution = 0.05
+ambient_light_energy = 0.0
+tonemap_exposure = 0.6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gfkhe"]
+bg_color = Color(0.16470589, 0.16470589, 0.16470589, 0.8)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_gfkhe"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5kag3"]
+font_size = 18
+font_color = Color(0, 0.93025094, 0.917203, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_g7iek"]
+font_size = 18
+font_color = Color(0.79622394, 0.3876549, 0.90225875, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g7iek"]
+bg_color = Color(0.16470589, 0.16470589, 0.16470589, 0.8)
+
+[node name="Game" type="Node3D" unique_id=1433884793]
+
+[node name="Sky" type="WorldEnvironment" parent="." unique_id=1932838987]
+environment = SubResource("Environment_3ciuf")
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1695757669]
+transform = Transform3D(0.6908824, 0.511215, -0.511215, 0, 0.70710677, 0.70710677, 0.72296715, -0.48852763, 0.48852763, 0, 100, 0)
+layers = 15
+light_color = Color(0.9135031, 0.7004087, 0.3751921, 1)
+light_energy = 3.0
+light_indirect_energy = 0.0
+light_angular_distance = 0.5
+light_bake_mode = 0
+shadow_enabled = true
+directional_shadow_mode = 1
+directional_shadow_max_distance = 3000.0
+
+[node name="TrackContainer" type="Node3D" parent="." unique_id=277128810]
+unique_name_in_owner = true
+
+[node name="RaceManager" type="Node3D" parent="." unique_id=1791733500]
+unique_name_in_owner = true
+script = ExtResource("4_5kag3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=450948378]
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=300918855]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel" unique_id=1860569430]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 27.0
+offset_top = 30.0
+offset_bottom = 26.0
+grow_horizontal = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Panel/MarginContainer" unique_id=147279258]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gfkhe")
+
+[node name="HUD1" type="HBoxContainer" parent="CanvasLayer/Panel/MarginContainer/PanelContainer" unique_id=714424160]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TimeLabel" type="Label" parent="CanvasLayer/Panel/MarginContainer/PanelContainer/HUD1" unique_id=1469559453]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = SubResource("LabelSettings_gfkhe")
+
+[node name="AngleLabel" type="Label" parent="CanvasLayer/Panel/MarginContainer/PanelContainer/HUD1" unique_id=2043980584]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SpeedLabel" type="Label" parent="CanvasLayer/Panel/MarginContainer/PanelContainer/HUD1" unique_id=2006510528]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 20)
+layout_mode = 2
+label_settings = SubResource("LabelSettings_5kag3")
+horizontal_alignment = 1
+
+[node name="VSeperator2" type="Label" parent="CanvasLayer/Panel/MarginContainer/PanelContainer/HUD1" unique_id=1901900969]
+layout_mode = 2
+
+[node name="PenaltyLabel" type="Label" parent="CanvasLayer/Panel/MarginContainer/PanelContainer/HUD1" unique_id=481933333]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 20)
+layout_mode = 2
+label_settings = SubResource("LabelSettings_g7iek")
+vertical_alignment = 1
+
+[node name="Panel2" type="Panel" parent="CanvasLayer" unique_id=1834550836]
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Panel2" unique_id=238049650]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 40.0
+offset_top = -31.5
+offset_right = 42.0
+offset_bottom = -8.5
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Panel2/MarginContainer2" unique_id=662893005]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_g7iek")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel2/MarginContainer2/PanelContainer" unique_id=1683500865]
+layout_mode = 2
+
+[node name="LapLabel" type="Label" parent="CanvasLayer/Panel2/MarginContainer2/PanelContainer/VBoxContainer" unique_id=1844591091]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Lap 1"
+
+[node name="LapTimeLabel" type="Label" parent="CanvasLayer/Panel2/MarginContainer2/PanelContainer/VBoxContainer" unique_id=456931304]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
