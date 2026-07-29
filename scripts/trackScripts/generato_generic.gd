@@ -24,8 +24,8 @@ const MAP_CONFIGS := {
 		"wall_thickness": 0.5,
 	},
 	GameSettings.MapName.INK: {
-		"track_width": 20.0,
-		"cone_spacing": 10.0,
+		"track_width": 22.0,
+		"cone_spacing": 20.0,
 		"wall_height": 3.0,
 		"wall_thickness": 1.5,
 	},
@@ -149,9 +149,9 @@ func generate_wall(side_sign: float, mesh_instance: MeshInstance3D) -> void:
 		var outer_bottom = inner_bottom + right * side_sign * WALL_THICKNESS
 		var outer_top = inner_top + right * side_sign * WALL_THICKNESS
 		
-		#debugging spa, wehatewalls 
-		if forward.length() < 0.001:
-			print("Zero forward vector at distance: ", distance)
+		##debugging spa, wehatewalls 
+		#if forward.length() < 0.001:
+			#print("Zero forward vector at distance: ", distance)
 		
 		if has_prev:
 			if side_sign > 0.0:

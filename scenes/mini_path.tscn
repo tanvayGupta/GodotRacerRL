@@ -17,6 +17,11 @@ albedo_texture = ExtResource("1_o0jiq")
 material = SubResource("StandardMaterial3D_q70cn")
 size = Vector2(300, 300)
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qetfm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qetfm"]
+size = Vector3(400, 40, 5)
+
 [node name="Node3D" type="Node3D" unique_id=175307478]
 
 [node name="Ground" type="StaticBody3D" parent="." unique_id=1697174246]
@@ -88,3 +93,26 @@ checkpoint_id = 8
 [node name="Checkpoint9" parent="Checkpoints" unique_id=1042010962 groups=["Checkpoints"] instance=ExtResource("5_qetfm")]
 transform = Transform3D(0.4067047, 0, 0.9135597, 0, 1, 0, -0.9135597, 0, 0.4067047, -13.579224, 0, -3.5463772)
 checkpoint_id = 9
+
+[node name="Walls" type="Node3D" parent="." unique_id=1511363321]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls" unique_id=2025991557]
+collision_layer = 2
+collision_mask = 7
+physics_material_override = SubResource("PhysicsMaterial_qetfm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/StaticBody3D" unique_id=1192318230]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 198.36877)
+shape = SubResource("BoxShape3D_qetfm")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Walls/StaticBody3D" unique_id=704430159]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -198.5749)
+shape = SubResource("BoxShape3D_qetfm")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Walls/StaticBody3D" unique_id=1198078014]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 194.98169, 0, -2.144806)
+shape = SubResource("BoxShape3D_qetfm")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Walls/StaticBody3D" unique_id=235579505]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -196.5695, 0, -2.144806)
+shape = SubResource("BoxShape3D_qetfm")

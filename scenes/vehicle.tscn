@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cagbqkbnp28rb" path="res://scripts/vehicle.gd" id="1_bgm3u"]
 [ext_resource type="PackedScene" uid="uid://cfuixulwor5g0" path="res://assets/dodgeSrtHellcat/dodge_challenger_srt_hellcat_redeye__free.glb" id="2_blnh5"]
 [ext_resource type="Script" uid="uid://d3wa652n1csbq" path="res://scripts/brakelights.gd" id="3_blnh5"]
+[ext_resource type="Script" uid="uid://b1fqnubgdu003" path="res://scripts/agent/sensor_rig.gd" id="4_psfx0"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bgm3u"]
 
@@ -71,3 +72,111 @@ script = ExtResource("3_blnh5")
 [node name="Camera3D" type="Camera3D" parent="." unique_id=257793649]
 transform = Transform3D(-1, 2.5121855e-08, -8.37355e-08, 0, 0.9578225, 0.28736052, 8.742278e-08, 0.28736052, -0.9578225, 0, 3.5, -5)
 fov = 91.7
+
+[node name="SensorRig" type="Node3D" parent="." unique_id=1272791958]
+unique_name_in_owner = true
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+script = ExtResource("4_psfx0")
+
+[node name="SensorRig2" type="Node3D" parent="." unique_id=985566521]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 0, 0)
+visible = false
+
+[node name="RayCast1" type="RayCast3D" parent="SensorRig2" unique_id=1913372455]
+transform = Transform3D(0.17364822, 0, 0.9848077, 0, 1, 0, -0.9848077, 0, 0.17364822, 0, 0, 2.5964036)
+hit_from_inside = true
+collide_with_areas = true
+
+[node name="RayCast2" type="RayCast3D" parent="SensorRig2" unique_id=1206417132]
+transform = Transform3D(0.34202015, 0, 0.9396926, 0, 1, 0, -0.9396926, 0, 0.34202015, 0, 0, 2.5964036)
+hit_from_inside = true
+collide_with_areas = true
+
+[node name="RayCast3" type="RayCast3D" parent="SensorRig2" unique_id=858594321]
+transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, 0, 0, 2.5964036)
+hit_from_inside = true
+collide_with_areas = true
+
+[node name="RayCast4" type="RayCast3D" parent="SensorRig2" unique_id=126490763]
+transform = Transform3D(0.64278764, 0, 0.76604444, 0, 1, 0, -0.76604444, 0, 0.64278764, 0, 0, 2.5964036)
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="RayCast5" type="RayCast3D" parent="SensorRig2" unique_id=954060107]
+transform = Transform3D(0.76604444, 0, 0.6427876, 0, 1, 0, -0.6427876, 0, 0.76604444, 0, 0, 2.5964036)
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="RayCast6" type="RayCast3D" parent="SensorRig2" unique_id=2083590389]
+transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, 0, 0, 2.5964036)
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="RayCast7" type="RayCast3D" parent="SensorRig2" unique_id=281066308]
+transform = Transform3D(0.9396926, 0, 0.34202012, 0, 1, 0, -0.34202012, 0, 0.9396926, 0, 0, 2.5964036)
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="RayCast8" type="RayCast3D" parent="SensorRig2" unique_id=1000964446]
+transform = Transform3D(0.9848077, 0, 0.17364818, 0, 1, 0, -0.17364818, 0, 0.9848077, 0, 0, 2.5964036)
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="RayCast9" type="RayCast3D" parent="SensorRig2" unique_id=1587221502]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5964036)
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="RayCast10" type="RayCast3D" parent="SensorRig2" unique_id=729770936]
+transform = Transform3D(0.9848077, 0, -0.17364818, 0, 1, 0, 0.17364818, 0, 0.9848077, 0, 0, 2.5964036)
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="RayCast11" type="RayCast3D" parent="SensorRig2" unique_id=518881611]
+transform = Transform3D(0.9396926, 0, -0.34202012, 0, 1, 0, 0.34202012, 0, 0.9396926, 0, 0, 2.5964036)
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="RayCast12" type="RayCast3D" parent="SensorRig2" unique_id=1897929324]
+transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, 0, 0, 2.5964036)
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="RayCast13" type="RayCast3D" parent="SensorRig2" unique_id=1600867413]
+transform = Transform3D(0.76604444, 0, -0.6427876, 0, 1, 0, 0.6427876, 0, 0.76604444, 0, 0, 2.5964036)
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="RayCast14" type="RayCast3D" parent="SensorRig2" unique_id=1833607408]
+transform = Transform3D(0.64278764, 0, -0.76604444, 0, 1, 0, 0.76604444, 0, 0.64278764, 0, 0, 2.5964036)
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="RayCast15" type="RayCast3D" parent="SensorRig2" unique_id=1693269935]
+transform = Transform3D(0.49999997, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.49999997, 0, 0, 2.5964036)
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="RayCast16" type="RayCast3D" parent="SensorRig2" unique_id=536572717]
+transform = Transform3D(0.34202015, 0, -0.9396926, 0, 1, 0, 0.9396926, 0, 0.34202015, 0, 0, 2.5964036)
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="RayCast17" type="RayCast3D" parent="SensorRig2" unique_id=895531451]
+transform = Transform3D(0.17364822, 0, -0.9848077, 0, 1, 0, 0.9848077, 0, 0.17364822, 0, 0, 2.5964036)
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false

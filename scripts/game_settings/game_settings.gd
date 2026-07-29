@@ -12,7 +12,7 @@ enum MapName {
 }
 
 var boundary_type = BoundaryType.CONES
-var map_name = MapName.MINI
+var map_name = MapName.INK
 
 var penalty = 0.0
 var speed = 0.0

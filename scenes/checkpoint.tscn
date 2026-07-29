@@ -13,10 +13,12 @@ material = SubResource("StandardMaterial3D_yyywg")
 size = Vector3(20, 1, 1)
 
 [node name="Checkpoint" type="Area3D" unique_id=1468200839]
+collision_layer = 4
 script = ExtResource("1_87x1m")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1079527825]
 shape = SubResource("BoxShape3D_pbk3a")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1551312725]
+layers = 4
 mesh = SubResource("BoxMesh_yyywg")
