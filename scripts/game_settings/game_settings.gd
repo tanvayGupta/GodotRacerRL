@@ -11,7 +11,7 @@ enum MapName {
 	MINI
 }
 
-var boundary_type = BoundaryType.CONES
+var boundary_type = BoundaryType.WALLS
 var map_name = MapName.INK
 
 var penalty = 0.0

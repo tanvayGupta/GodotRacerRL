@@ -29,6 +29,8 @@ const VEHICLE_SCENE := preload("res://scenes/vehicle.tscn")
 func _ready() -> void:
 	_label_initialize()
 	GameEvents.cone_hit.connect(_on_cone_hit)
+	#GameEvents.checkpointPenalty.connect(_on_checkpoint_violation)
+	#GameEvents.lapCompletion.connect(_on_lap_completion)
 		
 	var track_instance = _load_track()
 	_connect_track_signals(track_instance)
@@ -53,14 +55,13 @@ func _spawn_vehicle(track_instance: Node3D) -> void:
 	var spawn_point: Marker3D = track_instance.get_node("SpawnPoint")
 
 	var vehicle = VEHICLE_SCENE.instantiate()
-	add_child(vehicle) 
 	vehicle.global_transform = spawn_point.global_transform
+	add_child(vehicle) 
 
 func _connect_track_signals(track_instance: Node3D) -> void:
-	var signal_base: Node3D = track_instance.get_node("CheckpointManager")
-	signal_base.checkpointViolation.connect(_on_checkpoint_violation)
-	
-	signal_base.lapCompletion.connect(_on_lap_completion)
+	#var signal_base: Node3D = track_instance.get_node("CheckpointManager")
+	GameEvents.checkpointPenalty.connect(_on_checkpoint_violation)
+	GameEvents.lapCompletion.connect(_on_lap_completion)
 	
 func _on_lap_completion(_meh):
 	if time_elapsed == 0.0:
@@ -71,9 +72,10 @@ func _on_lap_completion(_meh):
 	current_lap += 1
 	LapLabel.text = "Lap: %d" %current_lap
 	
-func _on_checkpoint_violation(amount) -> void:
+func _on_checkpoint_violation(amount,vehicle) -> void:
+	#print("Hey I am checkpoint violation function inside score_system %.1f" % amount)
 	GameSettings.penalty += amount
-	PenaltyLabel.text = "Checkpoint Penalty >:C\n %.1f" %GameSettings.penalty
+	PenaltyLabel.text = "Penalty\n %.1f" %GameSettings.penalty
 
 func _on_cone_hit(amount):
 	print("Recieved")
@@ -101,6 +103,7 @@ func _process(delta: float) -> void:
 func secondCounter(_accu: float) -> void:
 	SpeedLabel.text = "Speed :\n %.1f kmph" % GameSettings.speed
 	AngleLabel.text = "Steer :\n %.2f rads" % GameSettings.angle
+	PenaltyLabel.text = "Penalty :\n %.1f" % GameSettings.penalty
 	
 	
 func accumulated(accu: float) -> void:

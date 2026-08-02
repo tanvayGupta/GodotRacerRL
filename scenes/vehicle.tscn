@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cfuixulwor5g0" path="res://assets/dodgeSrtHellcat/dodge_challenger_srt_hellcat_redeye__free.glb" id="2_blnh5"]
 [ext_resource type="Script" uid="uid://d3wa652n1csbq" path="res://scripts/brakelights.gd" id="3_blnh5"]
 [ext_resource type="Script" uid="uid://b1fqnubgdu003" path="res://scripts/agent/sensor_rig.gd" id="4_psfx0"]
+[ext_resource type="Script" uid="uid://7c2qieha2xri" path="res://scripts/agent/racing_agent.gd" id="5_6gcpt"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bgm3u"]
 
@@ -180,3 +181,7 @@ transform = Transform3D(0.17364822, 0, -0.9848077, 0, 1, 0, 0.9848077, 0, 0.1736
 hit_from_inside = true
 collide_with_areas = true
 collide_with_bodies = false
+
+[node name="AIController3D" type="Node3D" parent="." unique_id=985056058 groups=["AGENT"]]
+script = ExtResource("5_6gcpt")
+metadata/_custom_type_script = "uid://d1st4toirwugw"

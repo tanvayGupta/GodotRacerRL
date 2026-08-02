@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="RacerRL"
-run/main_scene="uid://bwigw5nrhdcvj"
+run/main_scene="uid://cuxq8pu4q273h"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -19,12 +19,18 @@ config/icon="res://icon.svg"
 
 GameSettings="*uid://colhx2s830dpq"
 GameEvents="*uid://ce4x4plw1ou2u"
+PlayerSettings="*uid://pj1k87mavli5"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_rl_agents/plugin.cfg")
 
 [global_group]
 
 player="I think the vehicle is here"
 cones=""
 CheckpointsSpa=""
+AGENT=""
 
 [input]
 

@@ -3,7 +3,7 @@ extends Area3D
 
 @export var score_penalty := 10
 var triggered = false
-signal cone_hit
+#signal cone_hit
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
@@ -21,13 +21,13 @@ func _on_body_entered(body):
 	if body.is_in_group("player"):
 		triggered = true
 		#print("emitted")
-		cone_hit.emit(score_penalty)
+		#cone_hit.emit(score_penalty)
 		GameEvents.cone_hit.emit(score_penalty)
 		#GameSettings.penalty += 10
 		
-	elif body.is_in_group("cones"):
-		triggered = true
-		print("Emitted by cone")
-		#cone_hit.emit(5)
-		GameEvents.cone_hit.emit(score_penalty/2)
-		#GameSettings.penalty += score_penalty/2     
+	#elif body.is_in_group("cones"):
+		#triggered = true
+		#print("Emitted by cone")
+		##cone_hit.emit(5)
+		#GameEvents.cone_hit.emit(score_penalty/2)
+		##GameSettings.penalty += score_penalty/2     

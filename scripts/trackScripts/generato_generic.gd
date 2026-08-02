@@ -21,19 +21,19 @@ const MAP_CONFIGS := {
 		"track_width": 20.0,
 		"cone_spacing": 16.0,
 		"wall_height": 2.0,
-		"wall_thickness": 0.5,
+		"wall_thickness": 4,
 	},
 	GameSettings.MapName.INK: {
 		"track_width": 22.0,
-		"cone_spacing": 20.0,
+		"cone_spacing": 10.0,
 		"wall_height": 3.0,
-		"wall_thickness": 1.5,
+		"wall_thickness": 3,
 	},
 	GameSettings.MapName.MINI: {
 		"track_width": 8.0,
 		"cone_spacing": 15.0,
 		"wall_height": 3.0,
-		"wall_thickness": 0.5,
+		"wall_thickness": 2,
 	},
 	"monza": {
 		"track_width": 24.0,
@@ -182,6 +182,7 @@ func generate_mesh_collision(arr_mesh: ArrayMesh, mesh_instance: MeshInstance3D)
 	body.name = "WallCollision"
 	body.collision_layer = 2
 	body.collision_mask = 1
+	body.add_to_group("Walls")
 
 	var shape = CollisionShape3D.new()
 	shape.shape = arr_mesh.create_trimesh_shape()

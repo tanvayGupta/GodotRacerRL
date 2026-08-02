@@ -1,8 +1,8 @@
 extends Node3D
 
 @export var max_distance := 20.0
-@onready var sensorRig = %SensorRig
-@export var ray_count := 20
+#@onready var sensorRig = %SensorRig
+@export var ray_count := 30
 
 func _ready() -> void:
 	#for raycast in sensorRig.get_children():
@@ -19,7 +19,7 @@ func _ready() -> void:
 		ray.collide_with_bodies = true
 		ray.set_collision_mask_value(2,true)
 		
-		var angle = lerp(-PI/2, PI/2, float(i)/(ray_count-1))
+		var angle = lerp(-PI/3, PI/3, float(i)/(ray_count-1))
 		
 		ray.target_position = Vector3(
 			sin(angle) * max_distance,
@@ -43,5 +43,6 @@ func get_observation() -> PackedFloat32Array:
 				obs.append(max_distance/max_distance)
 	return obs
 	
-func _physics_process(delta: float) -> void:
-	print(get_observation())
+func _physics_process(_delta: float) -> void:
+	get_observation()
+	#print(get_observation())

@@ -1,0 +1,7 @@
+algorithm: PPO
+num_envs: 1          #  me test multi car, me increase this 
+n_steps: 32
+batch_size: 32
+n_epochs: 10
+learning_rate: 0.0003
+total_timesteps: 1000000

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cuxq8pu4q273h"]
 
 [ext_resource type="Texture2D" uid="uid://dq80lua41y4qd" path="res://assets/skies/the_sky_is_on_fire_4k.exr" id="1_g7iek"]
+[ext_resource type="Script" uid="uid://dsse0tjun2rd7" path="res://addons/godot_rl_agents/sync.gd" id="3_lnu2h"]
 [ext_resource type="Script" uid="uid://beqqt3ifmwsuc" path="res://scripts/score_system.gd" id="4_5kag3"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3ciuf"]
@@ -147,3 +148,7 @@ text = "Lap 1"
 unique_name_in_owner = true
 layout_mode = 2
 text = "0"
+
+[node name="Sync" type="Node" parent="." unique_id=1506357857]
+script = ExtResource("3_lnu2h")
+metadata/_custom_type_script = "uid://dsse0tjun2rd7"
