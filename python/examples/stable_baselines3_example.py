@@ -163,8 +163,8 @@ def close_env():
 
 
 def cleanup():
-    handle_onnx_export()
     handle_model_save()
+    handle_onnx_export()
     close_env()
 
 

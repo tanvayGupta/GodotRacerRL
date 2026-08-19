@@ -1,0 +1,24 @@
+python examples/stable_baselines3_example.py \
+  --n_steps=32 --batch_size=32 --learning_rate=0.0003 \
+  --timesteps=1000000 --experiment_name=racer_v1 \
+  --save_model_path=models/racer_v1.zip \
+  --onnx_export_path=models/racer_v1.onnx
+
+This will save progress
+and if you want to resume training,
+
+python examples/stable_baselines3_example.py \
+  --resume_model_path=models/racer_v1.zip \
+  --timesteps=1000000 \
+  --experiment_name=racer_v1_continued \
+  --save_model_path=models/racer_v1.zip \
+  --onnx_export_path=models/racer_v1.onnx
+
+This will resume from where you left off
+
+
+And if you want inference mode 
+
+python examples/stable_baselines3_example.py \
+  --resume_model_path=models/racer_v1.zip \
+  --inference
